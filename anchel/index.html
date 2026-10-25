@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ánchel, el pastor de Espierba · Belsetán</title>
+<meta name="description" content="Ánchel Loís Saludas, pastor de Espierba (valle de Bielsa), lleva casi cinco décadas recogiendo las palabras del belsetán.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one readable column; a mountain-skyline band opens the page, then sections stacked like stops on the way up the valley. */
+:root{
+  --bg:#e9ece6; --surface:#f7f8f4; --ink:#1f2a24; --muted:#56635a;
+  --line:#c9cfc4; --pine:#2f5d46; --pine-soft:#dbe7df; --ochre:#b5762a; --peak:#c3cbc0;
+  --f-display:"Zilla Slab",Georgia,serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141a17; --surface:#1c2420; --ink:#e6ebe5; --muted:#a3aea5;
+  --line:#33403a; --pine:#7fbf9b; --pine-soft:#22332a; --ochre:#dca35c; --peak:#26302b;
+  color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.6}
+a{color:var(--pine)}
+a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.col{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.hero{padding-block:56px 0;position:relative}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(46px,11vw,92px);line-height:.95;margin:.15em 0 .2em;letter-spacing:-.01em}
+.hero p.lede{font-size:21px;max-width:34ch;margin:0 0 28px;color:var(--ink)}
+.skyline{display:block;width:100%;height:auto;max-height:140px;margin-top:8px}
+main{display:flex;flex-direction:column;gap:56px;padding-block:44px 64px}
+h2{font-family:var(--f-display);font-size:30px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+section p{margin:0 0 14px;max-width:64ch}
+.cite{font-size:14px;color:var(--muted)}
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:8px}
+.trait{border-top:3px solid var(--pine);background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.trait b{font-family:var(--f-display);font-size:22px;color:var(--pine);font-weight:700}
+.trait span{font-size:15px;color:var(--muted);line-height:1.45}
+.res{display:flex;flex-direction:column;gap:12px}
+.card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+a.card:hover{border-color:var(--pine)}
+.card .ico{flex:0 0 44px;height:44px;border-radius:10px;background:var(--pine-soft);display:grid;place-items:center}
+.card .ico svg{width:28px;height:24px}
+.card h3{margin:0;font-family:var(--f-display);font-size:22px}
+.card p{margin:2px 0 0;font-size:16px;color:var(--muted)}
+.card.soon{opacity:.75;border-style:dashed}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--pine-soft);color:var(--pine);margin-left:6px;vertical-align:middle}
+.rules{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.rules li{padding-left:16px;border-left:2px solid var(--ochre);max-width:64ch}
+blockquote{margin:6px 0 16px;padding:4px 0 4px 16px;border-left:3px solid var(--ochre);font-style:italic;max-width:60ch}
+.biblio{padding-left:20px;margin:0;display:grid;gap:8px;font-size:16px}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:15px;color:var(--muted)}
+footer p{margin:0 0 6px}
+</style>
+<style>
+.back{font-size:14px;color:var(--muted);text-decoration:none}
+.back:hover{color:var(--pine)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;margin:8px 0 4px}
+.fact{background:var(--surface);border-top:3px solid var(--ochre);padding:14px 16px;display:flex;flex-direction:column;gap:2px}
+.fact b{font-family:var(--f-display);font-size:34px;line-height:1;color:var(--pine);font-variant-numeric:tabular-nums}
+.fact span{font-size:15px;color:var(--muted);line-height:1.4}
+.timeline{list-style:none;padding:0;margin:8px 0 0;display:grid;gap:14px}
+.timeline li{display:grid;grid-template-columns:72px 1fr;gap:14px;align-items:baseline}
+.timeline .y{font-family:var(--f-display);font-weight:700;font-size:20px;color:var(--ochre);font-variant-numeric:tabular-nums}
+.timeline p{margin:0}
+.note{background:var(--pine-soft);border-radius:10px;padding:14px 16px;font-size:16px;max-width:64ch}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="col">
+    <a class="back" href="../">← Belsetán</a>
+    <p class="eyebrow" style="margin-top:18px">Espierba · valle de Bielsa</p>
+    <h1>Ánchel, el pastor de las palabras</h1>
+    <p class="lede">Un pastor que empezó a los diecisiete años a guardar las palabras de su lengua antes de que se perdieran.</p>
+  </div>
+  <svg class="skyline" viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 140 L0 92 L70 60 L120 84 L190 30 L250 74 L310 48 L370 88 L440 22 L500 70 L560 52 L620 90 L690 40 L750 72 L800 58 L800 140 Z" fill="var(--peak)"/>
+    <path d="M0 140 L0 116 L90 96 L170 112 L260 90 L350 114 L450 94 L540 116 L640 100 L730 118 L800 104 L800 140 Z" fill="var(--pine)" opacity=".35"/>
+  </svg>
+</header>
+
+<main class="col">
+
+  <section>
+    <div class="facts">
+      <div class="fact"><b>21.000</b><span>palabras del belsetán recogidas, aproximadamente</span></div>
+      <div class="fact"><b>47</b><span>años de trabajo, empezados a los 17</span></div>
+      <div class="fact"><b>15–20</b><span>personas que aún hablan belsetán</span></div>
+    </div>
+    <p class="cite">Cifras de 2025, según el reportaje de Candela Canales en elDiario.es (ver fuentes).</p>
+  </section>
+
+  <section id="quien">
+    <h2>Quién es</h2>
+    <p><b>Ánchel Loís Saludas</b> (Ángel Luis Saludas en castellano) es pastor en Espierba, uno de los pueblos del valle de Bielsa. En el valle se le conoce por su casa, <b>casa Barré</b>.</p>
+    <p>Según el reportaje de elDiario.es, es el único hablante actual que recibió el belsetán a la vez de su padre y de su madre. Mientras cuida el ganado, sigue anotando palabras.</p>
+  </section>
+
+  <section id="diccionario">
+    <h2>Un diccionario hecho a mano</h2>
+    <p>Con diecisiete años decidió recoger las palabras del belsetán. Le movía ver cómo se despreciaba la forma de vida de sus mayores y la lengua en la que hablaban. Casi cinco décadas después, su recopilación reúne unas 21.000 palabras.</p>
+    <p>Ese diccionario sigue sin publicar. Necesita apoyo institucional para poder editarse.</p>
+    <p class="note">Por respeto a su trabajo, esta web no reproduce ninguna entrada del diccionario de Ánchel. Cuando se publique, enlazaremos a la edición y citaremos siempre su autoría.</p>
+  </section>
+
+  <section id="obra">
+    <h2>Su obra</h2>
+    <ul class="timeline">
+      <li><span class="y">1985</span><p>Escribe el poema <i>Espierba, lo mío lugar</i>, recogido después en la <i>Replega de testos en aragonés dialeutal de o sieglo XX</i>, de Francho Nagore (1987).</p></li>
+      <li><span class="y">2005</span><p>Publica con el filólogo Chabier Lozano <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>, la descripción gramatical más completa del belsetán actual. De este libro salen todas las formas del <a href="../juegos/rebano/">juego del rebaño</a>.</p></li>
+      <li><span class="y">2025</span><p>Es el protagonista del documental <i>21.000 palabras (Un capezuto e dos collons)</i>, de Maxi Campo (Queridas producciones). Un cuento suyo en belsetán se anima para la película, con dibujos de Javier Lavilla.</p></li>
+    </ul>
+  </section>
+
+  <section id="por-que">
+    <h2>Por qué este proyecto se llama «El aprendiz del pastor»</h2>
+    <p>Todo lo que se publica en esta web le debe algo a Ánchel. Nosotros no hablamos belsetán: somos sus aprendices. Ordenamos lo que él y Chabier Lozano documentaron, lo citamos y lo acercamos a quien tenga curiosidad. La lengua, su sonido y su memoria son suyos y de la gente del valle.</p>
+  </section>
+
+  <section id="fuentes">
+    <h2>Fuentes</h2>
+    <ol class="biblio">
+      <li>Canales, Candela (2025): reportaje sobre Ánchel Saludas y el documental <i>21.000 palabras</i>. <i>elDiario.es</i>, 11 de abril de 2025. <a href="https://www.eldiario.es/aragon/cultura/pastor-pirineo-recopilado-21-000-palabras-belsetan-variante-aragones-hablan-20-personas_1_12199836.html">Leer el reportaje</a>.</li>
+      <li>Lozano, Chabier y Saludas, Ángel (2005): <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>. Zaragoza: Gara d’Edizions.</li>
+      <li>Nagore Laín, Francho (ed.) (1987): <i>Replega de testos en aragonés dialeutal de o sieglo XX</i>, tomo 1.</li>
+    </ol>
+  </section>
+
+</main>
+
+<footer>
+  <div class="col">
+    <p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
+    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Contenidos con licencia CC BY-SA.</p>
+  </div>
+</footer>
+
+</body>
+</html>
