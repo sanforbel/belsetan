@@ -88,7 +88,7 @@ footer p{margin:0;max-width:65ch}
   </header>
 
   <div class="flock" aria-live="polite">
-    <div class="label">Rebaño: <b id="count">0</b> güellas · <span id="pos">pregunta 1 de 1</span></div>
+    <div class="label">Rebaño: <b id="count">0</b> <span id="unit">güellas</span> · <span id="pos">pregunta 1 de 23</span></div>
     <div class="sheep" id="sheep"></div>
   </div>
 
@@ -99,9 +99,9 @@ footer p{margin:0;max-width:65ch}
   <main id="stage"></main>
 
   <footer>
-    <p><b>Fuente única:</b> <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>, Chabier Lozano y Ángel Saludas, Zaragoza, 2005 (morfología Lozano-Saludas). Las opciones de respuesta son etiquetas gramaticales o formas atestadas; el juego no muestra formas belsetanas inventadas.</p>
-    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/" style="color:inherit">@sanforbel</a>.</p>
+    <p><b>Fuente:</b> Chabier Lozano y Ángel Saludas (2005), <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>, Zaragoza, Gara d’Edizions. Las respuestas que se ofrecen son etiquetas gramaticales o formas que aparecen en ese libro.</p>
     <p>Este juego ordena lo que dicen los libros. El sonido del belsetán está en las grabaciones y en sus hablantes: escúchalos.</p>
+    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/" style="color:inherit">@sanforbel</a>.</p>
   </footer>
 </div>
 
@@ -119,12 +119,12 @@ const Q = [
  {r:"art", q:'¿Qué artículo masculino plural usa el belsetán?',
   ex:["es parientes de tu muller deben estar chupitos","los parientes de tu mujer deben estar empapados"],
   o:["es","Varias formas según el sonido, como en singular","No tiene artículo plural"], a:0,
-  why:'Frente a la variedad del singular, el masculino plural tiene una sola forma: <span class="form">es</span>.', sec:"El artículo determinado"},
+  why:'Frente a las muchas formas del singular, el masculino plural tiene una sola: <span class="form">es</span>.', sec:"El artículo determinado"},
  {r:"art", q:'En este ejemplo aparece <span class="form">lo</span>. ¿Qué dice la morfología de esta forma?',
   ex:["marché con lo macho que tenenos en casa","me fui con el macho que teníamos en casa"],
   o:["Es la menos usada, pero sigue viva entre las personas mayores","Es la forma más general del masculino","Es un castellanismo reciente"], a:0,
   why:'La forma general es <span class="form">el</span>. <span class="form">Lo</span> es la menos usada, aunque sigue vigente entre la gente de más edad.', sec:"El artículo determinado"},
- {r:"art", q:'Para el artículo neutro («lo que…»), ¿qué forma considera propia del belsetán la morfología?',
+ {r:"art", q:'Para el artículo neutro («lo que…»), ¿qué forma considera la morfología propia del belsetán?',
   ex:["foi el que puedo","hago lo que puedo"],
   o:["el","lo","Las dos por igual"], a:0,
   why:'El neutro coincide con el masculino <span class="form">el</span>. Los autores consideran <span class="form">lo</span> una intromisión del castellano en el neutro. Por eso no hay que normalizar hacia «lo que».', sec:"El artículo neutro"},
@@ -138,14 +138,14 @@ const Q = [
   why:'Los autores usan la grafía catalana para las geminadas <span class="form">n·n</span> y <span class="form">l·l</span>. Hoy solo se conservan en el valle de Bielsa.', sec:"Geminación del artículo"},
  {r:"art", q:'¿Por qué no lleva artículo la palabra <span class="form">tío</span>?',
   ex:["biene con tío","ven con el tío"],
-  o:["Con nombres de parentesco cercano no se usa artículo","Es un error de transcripción","Porque tío es masculino"], a:0,
-  why:'Igual que en otras hablas aragonesas, el artículo no aparece con parentesco muy cercano. Pasa también con el posesivo: <span class="form">mi chirmán</span> ‘mi hermano’.', sec:"Valores y usos del artículo"},
+  o:["Porque es un nombre de parentesco cercano","Porque es un error de transcripción","Porque tío es masculino"], a:0,
+  why:'Igual que en otras hablas aragonesas, el artículo no aparece con nombres de parentesco muy cercano. Por eso el posesivo también se construye sin artículo (<span class="form">mi chirmán</span> ‘mi hermano’), algo que, según los autores, se aparta de la regla general del aragonés.', sec:"Valores y usos del artículo"},
 
  {r:"nom", q:'¿Cómo forma el plural <span class="form">nuet</span> ‘noche’?',
   ex:["nuet / nuez","noche / noches"],
   o:["Con -z","Con -s","Con -es","Con -os"], a:0,
-  why:'El alomorfo <span class="form">-z</span>, característico del aragonés, viene de la unión -t + s. Lo mismo: <span class="form">piet / piez</span>, <span class="form">paret / parez</span>.', sec:"Formación del plural"},
- {r:"nom", q:'¿Y <span class="form">peix</span> ‘pez’?',
+  why:'El alomorfo <span class="form">-z</span>, característico del aragonés, viene de la unión de -t y -s. Lo mismo ocurre en <span class="form">piet / piez</span>, <span class="form">paret / parez</span>.', sec:"Formación del plural"},
+ {r:"nom", q:'¿Cómo forma el plural <span class="form">peix</span> ‘pez’?',
   ex:["peix / peixes","pez / peces"],
   o:["Con -es","Con -z","Con -os","Sin cambio"], a:0,
   why:'Los nombres acabados en -z, -s y -x toman <span class="form">-es</span>: <span class="form">falz / falzes</span>, <span class="form">mes / meses</span>, <span class="form">reloix / reloixes</span>.', sec:"Formación del plural"},
@@ -162,19 +162,19 @@ const Q = [
   o:["Se escribe, pero no se pronuncia: /pastós/","Se pronuncia siempre","Desaparece también en singular"], a:0,
   why:'En belsetán la -r final no es muda en singular, pero se pierde en el plural (/mullés/, /pastós/). Los autores la mantienen en la escritura por coherencia con el singular.', sec:"Formación del plural"},
  {r:"nom", q:'¿Cuál de estos adjetivos es invariable (igual en masculino y femenino)?',
-  ex:["yeran asclas grans","eran astillas grandes"],
+  ex:["l’augua ye freda","el agua está fría"],
   o:["gran","biello","fredo"], a:0,
-  why:'<span class="form">gran</span> tiene una sola terminación, como <span class="form">calién</span> o <span class="form">berde</span>. En cambio <span class="form">biello / biella</span> y <span class="form">fredo / freda</span> varían: <i>l’augua ye freda</i>.', sec:"El adjetivo calificativo: el género"},
+  why:'<span class="form">Gran</span> tiene una sola terminación, como <span class="form">calién</span> o <span class="form">berde</span>: <i>yeran asclas grans</i> ‘eran astillas grandes’. En cambio, <span class="form">biello / biella</span> y <span class="form">fredo / freda</span> varían, como en el ejemplo.', sec:"El adjetivo calificativo: el género"},
 
  {r:"ver", q:'<span class="form">foi</span>, <span class="form">soi</span>, <span class="form">doi</span>, <span class="form">boi</span>: ¿qué tienen en común?',
   ex:["foi el que puedo","hago lo que puedo"],
   o:["Son primera persona del presente con -i en vez de -o","Son pretéritos perfectos","Son formas de imperativo"], a:0,
-  why:'La 1.ª persona del presente acaba en -o (<span class="form">puyo, bebo, cullo</span>). La excepción son <i>fer, estar, estar-se, dar</i> e <i>ir</i>, que acaban en -i.', sec:"El presente de indicativo"},
+  why:'La 1.ª persona del presente acaba en -o (<span class="form">puyo, bebo, cullo</span>). Las excepciones son <i>fer, estar, estar-se, dar</i> e <i>ir</i>, cuya primera persona acaba en -i.', sec:"El presente de indicativo"},
  {r:"ver", q:'¿Qué forma es <span class="form">yérez</span>?',
   ex:["yere, yeras, yera, yenos, yérez, yeran","imperfecto de estar"],
   o:["Imperfecto de estar, 2.ª persona del plural","Presente de estar, 2.ª del singular","Imperfecto de subjuntivo"], a:0,
   why:'<i>Estar</i> tiene un imperfecto propio, que cubre los usos castellanos de ser y estar.', sec:"El imperfecto de indicativo"},
- {r:"ver", q:'¿Y <span class="form">ebe</span>?',
+ {r:"ver", q:'¿Qué forma es <span class="form">ebe</span>?',
   ex:["ebe, ebas, eba, enos, ébez, eban","imperfecto de aber"],
   o:["Imperfecto de aber, 1.ª persona del singular","Presente de aber","Participio de aber"], a:0,
   why:'Se usa como auxiliar del pluscuamperfecto y en el impersonal <span class="form">i eba</span>. Los autores destacan que Bielsa conserva esta forma reducida frente a <i>abeba</i> de otras zonas.', sec:"El imperfecto de indicativo"},
@@ -182,14 +182,14 @@ const Q = [
   ex:["soi fendo yerba","estoy segando heno"],
   o:["Gerundio de fer","Participio de fer","Presente de fer"], a:0,
   why:'El gerundio añade -ndo al radical de presente: <span class="form">puyando, bebendo, cullindo, fendo</span>.', sec:"El gerundio"},
- {r:"ver", q:'¿Qué significa el participio <span class="form">crompato</span>?',
-  ex:["crompato","comprado"],
-  o:["comprado","comprando","compraba"], a:0,
-  why:'Los participios débiles acaban en -ato (1.ª conjugación) e -ito (2.ª y 3.ª): <span class="form">llebato, comito, benito</span>. Las formas en -u (<i>pasau</i>) vienen del castellano y los autores no las consideran propias.', sec:"El participio"},
- {r:"ver", q:'¿Qué forma es <span class="form">puyases</span>?',
-  ex:["puyando piedras pa’s arbañils","subiendo piedras para los albañiles"],
-  o:["Imperfecto de subjuntivo de puyar, 2.ª del singular","Imperfecto de indicativo de puyar","Presente de subjuntivo de puyar"], a:0,
-  why:'El imperfecto de subjuntivo belsetán viene de -ASSEM / -ISSEM: <span class="form">puyás, puyases, puyás</span>. Los subjuntivos en -ra del castellano no se consideran propios.', sec:"El imperfecto de subjuntivo"},
+ {r:"ver", q:'¿Qué forma es <span class="form">perdito</span> en este ejemplo?',
+  ex:["s’ha perdito tot el buen que i eba","se ha perdido todo lo bueno que había"],
+  o:["Participio de perder","Gerundio de perder","Imperfecto de perder"], a:0,
+  why:'Los participios débiles acaban en -ato en la 1.ª conjugación (<span class="form">crompato</span> ‘comprado’, <span class="form">llebato</span> ‘llevado’) y en -ito en la 2.ª y la 3.ª (<span class="form">perdito, comito, benito</span>). Las formas en -u (<i>pasau</i>) vienen del castellano y los autores no las consideran propias.', sec:"El participio"},
+ {r:"ver", q:'¿Qué forma es <span class="form">faltás</span> en este ejemplo?',
+  ex:["er s’encargaba de que no faltás ni bin ni pan","él se encargaba de que no faltase ni vino ni pan"],
+  o:["Imperfecto de subjuntivo de faltar, 3.ª del singular","Pretérito perfecto simple de faltar","Presente de indicativo de faltar"], a:0,
+  why:'El imperfecto de subjuntivo belsetán viene de -ASSEM / -ISSEM. En la 1.ª y la 3.ª persona del singular pierde la -e final: <span class="form">puyás</span>; la 2.ª es <span class="form">puyases</span>. Los subjuntivos en -ra del castellano no se consideran propios.', sec:"El imperfecto de subjuntivo"},
  {r:"ver", q:'¿De dónde sale la forma <span class="form">puez</span> ‘puedes’?',
   ex:["puedo, puez, puede, podemos, podez, pueden","presente de poder"],
   o:["De pued’s, con la -s que añaden tener, querer, benir y poder","Es un préstamo del catalán","Es una errata"], a:0,
@@ -203,14 +203,14 @@ const Q = [
   ex:["se er eba benito le abrí combidato a zenar","si él hubiese venido lo habría invitado a cenar"],
   o:["El valle de Bielsa es el único lugar donde se han documentado","Son comunes a todo el aragonés","Son préstamos del occitano"], a:0,
   why:'Los autores los incluyen entre los rasgos exclusivos del belsetán.', sec:"Rasgos exclusivos del belsetán"},
- {r:"exc", q:'¿Qué combinación de pronombres usa el belsetán donde la mayoría de hablas aragonesas usan <i>le’n, les ne</i>?',
-  ex:["ya me’l dizió","ya me lo dijo"],
+ {r:"exc", q:'En lugar de <i>le’n</i> o <i>les ne</i>, que son las formas de la mayoría de las hablas aragonesas, ¿qué combinación de pronombres usa el belsetán?',
+  ex:["ya’l·le’l dirí yo","ya se lo diría yo"],
   o:["le’l, le la, les los","lo i, la i","se lo, se la"], a:0,
   why:'La combinación <span class="form">le’l, le la, les los</span> es otro de los rasgos que los autores consideran exclusivos del valle.', sec:"Rasgos exclusivos del belsetán"},
- {r:"exc", q:'¿Qué morfemas del pretérito perfecto simple son, a falta de más datos, exclusivos de Bielsa?',
-  ex:["-ores, -órez","pretérito perfecto simple"],
-  o:["-ores y -órez","Ninguno: son los mismos que en castellano","Ninguno: son los mismos que en el resto del aragonés"], a:0,
-  why:'Los autores los señalan como exclusivos del valle, con la cautela de que faltan más datos.', sec:"Rasgos exclusivos del belsetán"}
+ {r:"exc", q:'¿Qué tiene de especial la terminación de <span class="form">estiores</span> ‘fuiste’?',
+  ex:["¿tú estiores abaixo pastor?","¿tú fuiste de pastor abajo?"],
+  o:["Junto con -órez, solo se ha documentado en el valle de Bielsa","Es la misma que en castellano","Es la misma que en el resto del aragonés"], a:0,
+  why:'Los morfemas del pretérito perfecto simple <span class="form">-ores</span> y <span class="form">-órez</span> son, a falta de más datos, exclusivos del valle de Bielsa.', sec:"Rasgos exclusivos del belsetán"}
 ];
 
 let route = "all", list = [], i = 0, flock = 0, answered = false;
@@ -239,6 +239,7 @@ function start(r){
 
 function updateFlock(){
   $("#count").textContent = flock;
+  $("#unit").textContent = flock===1?"güella":"güellas";
   $("#sheep").innerHTML = Array.from({length:flock},sheepSVG).join("");
   $("#pos").textContent = i<list.length?`pregunta ${i+1} de ${list.length}`:`${list.length} preguntas respondidas`;
   $("#bar").style.width = (i/list.length*100)+"%";
@@ -275,7 +276,7 @@ function pick(k){
 
 function end(){
   const n=list.length, pct=Math.round(flock/n*100);
-  const msg = pct===100?"Rebaño completo. Ánchel estaría orgulloso del aprendiz.":pct>=60?"Buen rebaño. Algunas güellas se quedaron en el puerto: vuelve a por ellas.":"El rebaño es pequeño todavía. Repite la ruta y fíjate en los ejemplos.";
+  const msg = pct===100?"Rebaño completo. Ya conoces bien lo que dicen los libros; ahora toca escuchar a los hablantes.":pct>=60?"Buen rebaño. Algunas güellas se quedaron en el puerto: vuelve a por ellas.":"El rebaño es pequeño todavía. Repite la ruta y fíjate en los ejemplos.";
   $("#stage").innerHTML = `<section class="card end">
     <h2>${flock} de ${n} güellas</h2>
     <p>${msg}</p>

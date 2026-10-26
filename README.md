@@ -1,6 +1,6 @@
-# Belsetán · El aprendiz del pastor
+# belsetan
 
-Web divulgativa del belsetán, el aragonés del valle de Bielsa, con formas atestadas y sus fuentes
+Aplicacio web publicada amb GitHub Pages.
 
 ## Obrir l'aplicacio
 
