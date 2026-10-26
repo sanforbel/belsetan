@@ -54,8 +54,19 @@ blockquote{margin:6px 0 16px;padding:4px 0 4px 16px;border-left:3px solid var(--
 footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:15px;color:var(--muted)}
 footer p{margin:0 0 6px}
 </style>
+<style>
+.topnav{background:var(--surface);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px}
+.topnav .brand{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:19px;color:var(--pine);text-decoration:none;margin-right:auto}
+.topnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.topnav a.tab{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
+.topnav a.tab:hover{color:var(--ink)}
+.topnav a.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ochre)}
+.topnav a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+</style>
 </head>
 <body>
+<nav class="topnav" aria-label="Secciones"><div class="in"><a class="brand" href="">Belsetán</a><ul><li><a class="tab" href="" aria-current="page">Inicio</a></li><li><a class="tab" href="anchel/">Ánchel</a></li><li><a class="tab" href="historia/">Historia</a></li><li><a class="tab" href="textos/">Textos</a></li><li><a class="tab" href="juegos/rebano/">Juegos</a></li></ul></div></nav>
 
 <header class="hero">
   <div class="col">
@@ -101,6 +112,20 @@ footer p{margin:0 0 6px}
     </div>
   </section>
 
+  <section id="leer-y-saber">
+    <h2>Leer y conocer</h2>
+    <div class="res">
+      <a class="card" href="textos/">
+        <div class="ico"><svg viewBox="0 0 22 18" aria-hidden="true"><path d="M4 3h10l4 4v8H4z" fill="none" stroke="var(--pine)" stroke-width="1.4"/><path d="M7 9h8M7 12h6" stroke="var(--pine)" stroke-width="1.4"/></svg></div>
+        <div><h3>Textos en belsetán</h3><p>Las tres cartas en verso de Leonardo Escalona (1927-1930), con las palabras clave explicadas.</p></div>
+      </a>
+      <a class="card" href="historia/">
+        <div class="ico"><svg viewBox="0 0 22 18" aria-hidden="true"><path d="M2 9h18" stroke="var(--pine)" stroke-width="1.4"/><circle cx="5" cy="9" r="2" fill="var(--pine)"/><circle cx="11" cy="9" r="2" fill="var(--surface)" stroke="var(--pine)" stroke-width="1.4"/><circle cx="17" cy="9" r="2" fill="var(--pine)"/></svg></div>
+        <div><h3>Historia del estudio</h3><p>De la tarde de 1944 en que Badia llegó a Bielsa al diccionario de Ánchel.</p></div>
+      </a>
+    </div>
+  </section>
+
   <section id="recursos">
     <h2>Aprender jugando</h2>
     <div class="res">
@@ -112,10 +137,7 @@ footer p{margin:0 0 6px}
         <div class="ico"><svg viewBox="0 0 22 18" aria-hidden="true"><rect x="3" y="2" width="16" height="14" rx="2" fill="none" stroke="var(--pine)" stroke-width="1.4"/><path d="M7 6h8M7 9h8M7 12h5" stroke="var(--pine)" stroke-width="1.4"/></svg></div>
         <div><h3>Vocabulario del valle <span class="pill">Próximamente</span></h3><p>Palabras documentadas en las fuentes publicadas, cada una con su ejemplo y su fuente.</p></div>
       </div>
-      <div class="card soon">
-        <div class="ico"><svg viewBox="0 0 22 18" aria-hidden="true"><path d="M4 3h10l4 4v8H4z" fill="none" stroke="var(--pine)" stroke-width="1.4"/><path d="M7 9h8M7 12h6" stroke="var(--pine)" stroke-width="1.4"/></svg></div>
-        <div><h3>Textos en belsetán <span class="pill">Próximamente</span></h3><p>Literatura y transcripciones, con traducción y comentario.</p></div>
-      </div>
+
     </div>
   </section>
 
@@ -124,7 +146,7 @@ footer p{margin:0 0 6px}
     <p>El pastor <b>Ánchel Loís Saludas</b>, de casa Barré de Espierba, y el filólogo <b>Chabier Lozano</b> publicaron en 2005 <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>, una extensa descripción gramatical del belsetán hablado a comienzos de este siglo. Además, Ánchel lleva casi cinco décadas recogiendo palabras: <a href="anchel/">conoce su historia</a>.</p>
     <p>Mucho antes, el filólogo <b>Antoni M. Badia i Margarit</b> llegó a Bielsa en 1944 y solo pudo hacer encuestas durante una tarde. Volvió en 1947, del 23 de julio al 12 de agosto, y con los materiales de los dos viajes publicó en 1950 <i>El habla del valle de Bielsa</i>, el primer estudio amplio sobre el belsetán.</p>
     <p>Badia dedicó un artículo a las mujeres como informantes y, en especial, a la tía Roseta. Manuel Alvar, que la entrevistó más tarde, contó que, ante los nietos que se burlaban de su manera de hablar, ella quería encerrarse con el dialectólogo para que la escucharan con respeto. Una fotografía de 1930 del Museo de Bielsa muestra a Roseta Faceto, de casa Choc, que podría ser ella.</p>
-    <p class="cite">Fuentes: morfología Lozano-Saludas (2005); Badia, <i>El habla del valle de Bielsa</i>, reed. 2015, introducción de Artur Quintana.</p>
+    <p class="cite">Fuentes: morfología Lozano-Saludas (2005); Badia, <i>El habla del valle de Bielsa</i>, reed. 2015, introducción de Artur Quintana. <a href="historia/">Ver la historia completa del estudio</a>.</p>
   </section>
 
   <section id="metodo">

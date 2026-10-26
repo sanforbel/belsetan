@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Textos en belsetán</title>
+<meta name="description" content="Las cartas en verso de Leonardo Escalona (1927-1930), con glosario de palabras documentadas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one readable column; a mountain-skyline band opens the page, then sections stacked like stops on the way up the valley. */
+:root{
+  --bg:#e9ece6; --surface:#f7f8f4; --ink:#1f2a24; --muted:#56635a;
+  --line:#c9cfc4; --pine:#2f5d46; --pine-soft:#dbe7df; --ochre:#b5762a; --peak:#c3cbc0;
+  --f-display:"Zilla Slab",Georgia,serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141a17; --surface:#1c2420; --ink:#e6ebe5; --muted:#a3aea5;
+  --line:#33403a; --pine:#7fbf9b; --pine-soft:#22332a; --ochre:#dca35c; --peak:#26302b;
+  color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.6}
+a{color:var(--pine)}
+a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.col{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.hero{padding-block:56px 0;position:relative}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(46px,11vw,92px);line-height:.95;margin:.15em 0 .2em;letter-spacing:-.01em}
+.hero p.lede{font-size:21px;max-width:34ch;margin:0 0 28px;color:var(--ink)}
+.skyline{display:block;width:100%;height:auto;max-height:140px;margin-top:8px}
+main{display:flex;flex-direction:column;gap:56px;padding-block:44px 64px}
+h2{font-family:var(--f-display);font-size:30px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+section p{margin:0 0 14px;max-width:64ch}
+.cite{font-size:14px;color:var(--muted)}
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:8px}
+.trait{border-top:3px solid var(--pine);background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.trait b{font-family:var(--f-display);font-size:22px;color:var(--pine);font-weight:700}
+.trait span{font-size:15px;color:var(--muted);line-height:1.45}
+.res{display:flex;flex-direction:column;gap:12px}
+.card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+a.card:hover{border-color:var(--pine)}
+.card .ico{flex:0 0 44px;height:44px;border-radius:10px;background:var(--pine-soft);display:grid;place-items:center}
+.card .ico svg{width:28px;height:24px}
+.card h3{margin:0;font-family:var(--f-display);font-size:22px}
+.card p{margin:2px 0 0;font-size:16px;color:var(--muted)}
+.card.soon{opacity:.75;border-style:dashed}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--pine-soft);color:var(--pine);margin-left:6px;vertical-align:middle}
+.rules{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.rules li{padding-left:16px;border-left:2px solid var(--ochre);max-width:64ch}
+blockquote{margin:6px 0 16px;padding:4px 0 4px 16px;border-left:3px solid var(--ochre);font-style:italic;max-width:60ch}
+.biblio{padding-left:20px;margin:0;display:grid;gap:8px;font-size:16px}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:15px;color:var(--muted)}
+footer p{margin:0 0 6px}
+</style>
+<style>
+h1{font-size:clamp(40px,9vw,76px)}
+.picker{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin-top:6px}
+.pick{font:inherit;text-align:left;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:12px 14px;cursor:pointer;display:flex;flex-direction:column;gap:2px}
+.pick b{font-family:"Zilla Slab",Georgia,serif;font-size:19px}
+.pick span{font-size:14px;color:var(--muted)}
+.pick[aria-pressed="true"]{border-color:var(--pine);box-shadow:inset 0 0 0 1px var(--pine);background:var(--pine-soft)}
+.pick:focus-visible,.w:focus-visible,.gclose:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.reader{display:grid;gap:22px;margin-top:22px}
+.about{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.about h3{margin:0 0 4px;font-family:"Zilla Slab",Georgia,serif;font-size:24px}
+.about p{margin:0 0 8px;font-size:16px;max-width:62ch}
+.about .who{color:var(--muted);font-size:15px}
+.poem{font-family:"Zilla Slab",Georgia,serif;font-weight:500;font-size:19px;line-height:1.55}
+.poem .hd{font-family:"Source Sans 3",system-ui,sans-serif;font-size:14px;letter-spacing:.06em;color:var(--muted);margin-bottom:14px}
+.poem .hd div:first-child{font-weight:700;color:var(--ink)}
+.poem .st{margin:0 0 18px}
+.poem .st span.l{display:block;padding-left:1.4em;text-indent:-1.4em}
+.poem .sg{font-style:italic;color:var(--muted);margin-top:8px}
+.w{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:var(--ochre);text-decoration-thickness:2px;text-underline-offset:3px}
+.w:hover{color:var(--pine)}
+.gl h3{font-family:"Zilla Slab",Georgia,serif;font-size:22px;margin:0 0 8px}
+.gl dl{margin:0;display:grid;gap:10px}
+.gl .e{border-left:2px solid var(--line);padding-left:12px}
+.gl .e.on{border-left-color:var(--ochre);background:var(--pine-soft)}
+.gl dt{font-weight:700}
+.gl dt i{font-weight:400;color:var(--muted);font-style:normal;font-size:14px}
+.gl dd{margin:0;font-size:16px}
+.gl dd .x{font-style:italic}
+.gl dd .n{color:var(--muted);font-size:15px}
+.pop{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--surface);border-top:2px solid var(--ochre);box-shadow:0 -6px 20px rgba(0,0,0,.12);padding-block:14px calc(14px + env(safe-area-inset-bottom,0px));padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.pop .in{max-width:760px;margin:0 auto;display:flex;gap:14px;align-items:flex-start}
+.pop .body{flex:1;min-width:0;font-size:16px}
+.pop .body b{font-family:"Zilla Slab",Georgia,serif;font-size:20px}
+.gclose{font:inherit;font-weight:600;background:transparent;color:var(--pine);border:1px solid var(--pine);border-radius:999px;padding:4px 12px;cursor:pointer}
+@media (min-width:900px){.reader{grid-template-columns:minmax(0,1fr) 280px;align-items:start}.gl{position:sticky;top:16px;max-height:calc(100vh - 32px);overflow:auto}}
+</style>
+<style>
+.topnav{background:var(--surface);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px}
+.topnav .brand{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:19px;color:var(--pine);text-decoration:none;margin-right:auto}
+.topnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.topnav a.tab{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
+.topnav a.tab:hover{color:var(--ink)}
+.topnav a.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ochre)}
+.topnav a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Secciones"><div class="in"><a class="brand" href="../">Belsetán</a><ul><li><a class="tab" href="../">Inicio</a></li><li><a class="tab" href="../anchel/">Ánchel</a></li><li><a class="tab" href="../historia/">Historia</a></li><li><a class="tab" href="../textos/" aria-current="page">Textos</a></li><li><a class="tab" href="../juegos/rebano/">Juegos</a></li></ul></div></nav>
+<header class="hero">
+  <div class="col">
+    <p class="eyebrow">Leonardo Escalona · 1927-1930</p>
+    <h1>Textos en belsetán</h1>
+    <p class="lede">Tres cartas en verso de un maestro de Bielsa, tal como se publicaron, con las palabras clave explicadas a partir de la morfología.</p>
+  </div>
+  <svg class="skyline" viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 140 L0 92 L70 60 L120 84 L190 30 L250 74 L310 48 L370 88 L440 22 L500 70 L560 52 L620 90 L690 40 L750 72 L800 58 L800 140 Z" fill="var(--peak)"/>
+    <path d="M0 140 L0 116 L90 96 L170 112 L260 90 L350 114 L450 94 L540 116 L640 100 L730 118 L800 104 L800 140 Z" fill="var(--pine)" opacity=".35"/>
+  </svg>
+</header>
+
+<main class="col">
+
+  <section id="autor">
+    <h2>Leonardo Escalona</h2>
+    <p><b>Leonardo Escalona Montaner</b> nació en Bielsa hacia 1891 y murió en Lascuarre hacia 1938. Fue maestro nacional en varias localidades de la provincia de Huesca y firmó algunos textos con el seudónimo <i>E. Solanáceo Roldán</i>. Su obra es breve, pero muy valiosa para conocer el belsetán de su época.</p>
+    <p>Sus textos son de dominio público. Los reproducimos tal como aparecen en el anexo de la morfología de Lozano y Saludas.</p>
+    <p class="cite">Fuentes: biografía de Leonardo Escalona en <a href="https://lenguasdearagon.org//pdf/biografias/leonardoescalona.pdf">lenguasdearagon.org</a>, a partir de la <i>Gran Enciclopedia Aragonesa</i>; Lozano y Saludas (2005), anexo I.</p>
+  </section>
+
+  <section id="leer">
+    <h2>Cómo leer estas cartas</h2>
+    <p>Escalona escribía con la ortografía del castellano (<i>v</i>, <i>h</i>, <i>nn</i> sin punto volado) y mezcla formas castellanas con formas belsetanas. No las corregimos: son un testimonio de cómo se escribía y se hablaba el belsetán hace casi un siglo. Hemos separado los versos en grupos al final de cada frase para facilitar la lectura.</p>
+    <p>Las <span class="w" style="cursor:default">palabras subrayadas</span> tienen una explicación. Púlsalas para verla. Solo explicamos palabras cuyo significado está documentado en la morfología de Lozano y Saludas; las demás quedan sin explicar, y no por eso son menos belsetanas.</p>
+  </section>
+
+  <section id="cartas">
+    <h2>Las cartas</h2>
+    <div class="picker" role="group" aria-label="Elige una carta"><button class="pick" id="pick-san-medardo" data-t="san-medardo" aria-pressed="false"><b>Las fiestas de San Medardo</b><span>1927 · Ufemia</span></button><button class="pick" id="pick-bielsa" data-t="bielsa" aria-pressed="false"><b>Bielsa</b><span>1928 · Colaset de la Plañera</span></button><button class="pick" id="pick-tiermas" data-t="tiermas" aria-pressed="false"><b>De Tiermas a Bielsa</b><span>1930 · Colaset de la Plañera</span></button></div>
+    <div class="reader">
+      <article id="poem" class="poem" aria-live="polite"></article>
+      <aside class="gl" id="gl" aria-label="Palabras de esta carta"></aside>
+    </div>
+  </section>
+
+  <section id="fuentes">
+    <h2>Fuentes</h2>
+    <ol class="biblio">
+      <li>Escalona, Leonardo: cartas en verso «Las fiestas de San Medardo» (Benabarre, 1927), «Bielsa» (1928) y «De Tiermas a Bielsa» (1930). Texto según el anexo I de Lozano y Saludas (2005). Su obra está editada también como <i>Obra en aragonés belsetán</i> (Xordica, 2012).</li>
+      <li>Lozano, Chabier y Saludas, Ángel (2005): <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>. Zaragoza: Gara d’Edizions. Fuente de todas las explicaciones del glosario.</li>
+      <li>«Leonardo Escalona». Biografía en <a href="https://lenguasdearagon.org//pdf/biografias/leonardoescalona.pdf">lenguasdearagon.org</a>.</li>
+    </ol>
+  </section>
+
+</main>
+
+<div class="pop" id="pop" hidden role="dialog" aria-label="Explicación de la palabra"><div class="in"><div class="body" id="popbody"></div><button class="gclose" id="popclose">Cerrar</button></div></div>
+
+<script>
+const TEXTS = [{"id": "san-medardo", "title": "Las fiestas de San Medardo", "year": "1927", "head": ["LAS FIESTAS DE SAN MEDARDO BENABARRE"], "poem": [["Le envio, mi Director,", "esta copia fiel, sincera", "de una misiva que ayer,", "cierto joven envió a Bielsa,", "en el habla peculiar,", "del Valle que al Cinca engendra,", "cuyo folklore, sin duda,", "algo aqui se asemeja."], ["“La carta que hüe t’escribo", "querida amiga Quineta", "ye tan solo pa contate", "cualque cosa de las fiestas", "qu’an feto aqui en Benabarre", "pa San Medardo e la feria."], ["Como naltros pueblos pasa", "en Ribagorza e Litera,", "e al igual que per astí,", "en Sobrarbe e per la Fueva", "el primer siñal qu’anuncia", "que las fiestas ya s’acercan,", "son las vesitas que suelen fer", "al Retor e al Abeitar", "al Medico e al Maestro", "(es mes letraus a la cuenta)", "güen rebaño de mullés", "a pedir papel d’imprenta", "pa adornar es paradós", "an se guardan las cazuelas."], ["Ademas, siempre se nota", "sobre tot nas casas güenas,", "qu’uns dias antes se crompan", "cordes, crapitos e güellas,", "crapons, gallinas e tot", "l’aminister pa la mesa,", "pa que frastés, convidatos,", "e tota la parentela", "puedan pasá uns dias güens", "que pa ixo vienen las fiestas,", "como en el valle Chistau", "deciba bien una güela", "al preguntale una choven", "per que asistiva tan vieja", "“per la miqueta’l de güen", "o el gotarron del vin, nena”", "Dos dias antes se siente", "la bulla de las furneras", "que no aduben a cocer", "la plaga de tortas güenas."], ["La confusión nas cocinas", "troballando mans e luengas", "con las sayas remangatas", "e enseñando las bajeras,", "repicando es almirez,", "preparando las chiretas,", "frecando bien es velons,", "vasillas e coberteras,", "que per no emplegarlos pró", "s’enrobinoren per fuera;", "emblanquiando las parez", "e frecando las catieras..."], ["En fin, troballando mes", "que las vrespas nas colmenas."], ["La vrispa de San Medardo,", "del castillo na torreta,", "un baldeo de campanas", "anunció empezar la fiesta", "aunque millor las tocaba", "el tio Polonio !rediezla!,", "e hasta el güen Mediosiñor,", "que ye un musico de cuerda;", "es dos tocaban uns valses", "qu’a las mullés bailar feban."], ["Per de tardes, nos llegó", "una banda de primera", "de musica e, de camín,", "tocoren per las carreras", "e luego, na procesión", "a San Medardo ida e güelta."], ["El ocho, de güen maitin,", "procesión en tota regla,", "misa cantata e sermón", "con música a tota orquesta,", "que tocó una marcha rial", "qu’una peceta valeba,", "presidiendo es de Justicia", "qu’a falta “bandas” teneban", "provisión de torta e vin", "na sacristia en “bandeja”."], ["A la hora del mediodia", "es pobres frastes !qué pena!,", "se no perque son de goma", "es hesen feto a miquetas;", "uns del brazo es estiraban,", "es altros de la chaqueta,", "toz se’s quereban llevar", "pa osequiálos bien na mesa,", "e al fin ganoren aquers", "que demostroren més fuerza..."], ["Esti-año no hemos tenito", "guaires diversions de fiestas", "perqué estoy qu’es de Justicia", "dicen que yay pocas perras:", "mica globos, codetes,", "ni fuegos d’ixos d’estrelas,", "ni tracas, ni cine, cosa,", "ni aquera maja retreta", "d’altros años; pero bailes ..."], ["ixo si, ya ye altra cuenta."], ["Entre mozas de la villa,", "e las venitas frasteras,", "de las orillas del Segre,", "hasta las de Cinca e Esera", "!cuantas chovens reteguapas!", "!cuantas royas e morenas!."], ["Han feto perder el sentido", "e trastornar la capeza", "a casatos e soltés", "del sexo fuerte !que fuerza!", "Toz han bailato de firme,", "sin descansase las piernas,", "sufrindo con bel mareo,", "de tantos rayos las flechas", "como saliban des güellos", "de las zagalas aqueras,", "capaces d’eletrizar", "al més santo anacoreta..."], ["Pa adobo de güena bota", "con ixas sayas curtetas", "con las mangas dica’l codo", "y el escote na pechera..."], ["!a cuantos chavals yo sé", "que les entran tembladeras", "e pa calmase algo es niervos,", "prenen duchas d’agua fresca!..."], ["Mica’estraño no seria", "que cuan se acaben las fiestas", "tienga el cura que chuñir", "a güena cosa parejas..."], ["El barquiller, las paradas,", "es cafés, bars e tabiernas,", "han cullito ya l’agosto", "sin deixar la primavera."], ["Sólo me falta decite", "que fue animata la feria,", "con tratantes benasqueses,", "de Bonansa e Castanesa,", "de las Paules, de Estopiñan e Calvera;", "que se pagoren güens precios", "pe’l bistiar que alli yeba."], ["Las güellas a doce duros", "es corderez solo a trenta", "pecetas, pero es vacúmens", "e mulamens, cas no yeran", "es trastes pa labradós", "que Lazur e altros vendeban,", "llevoren buen rebaixón", "perque viene la cosecha."], ["!Bay!.., que ya basta pa hüe", "con tan larga charradeta."], ["Le dirás a Maquiñon,", "de l’Ainsa, cuan el veigas", "que Heraldo de Ribagorza", "un escrito suyo espera,", "pos sabe que vale e puede", "e tiene ley a su tierra."], ["Espresiones as del Viejo,", "a San Marzal, as de Beusa", "a Colicot, al Colaso", "as de Mateu, la pellesa", "as del Tambor e Gambel,", "e as de casa la Molesa", "e pa tú un abrazo fuerte"]], "sign": ["de tu buen amiga", "Ufemia", "Benabarre, 10-VI-1927"], "who": "Ufemia escribe desde Benabarre a su amiga Quineta.", "about": "Una carta en verso sobre las fiestas de San Medardo y la feria de Benabarre: los preparativos en las casas, las tortas en los hornos, la procesión, los bailes y los precios del ganado. Los ocho primeros versos están en castellano y presentan la carta a «mi Director»."}, {"id": "bielsa", "title": "Bielsa", "year": "1928", "head": ["BIELSA", "Carta, escrita en el dialecto", "peculiar del Valle de Bielsa,", "que un belsetán manda a otro,", "residente en Puigbolea"], "poem": [["Querido amigo Tonet:", "M’alegraré qu’estas letras", "t’alcuentren jaque mes fuerte", "qu’es tuscos e que las pennas;", "la mía güena, a Dios gracias,", "pos tiengo salú e pecetas."], ["Sabrás que ya hemos quedato", "algo tranquilos en Bielsa,", "perque es turistas e tanto", "veraniantes d’altras tierras,", "qu’an pasato aquí el verano", "fuyindo toz de la crema;", "-es ingenieros de Montes,", "qu’estos pinás diz qu’ordenan,", "pa aseguranos pa siempre", "!qui sabe cuánta riqueza!-", "ingenieros del Ebro,", "que tamién el agua ordenan;", "e, en fin, tanto siñorio", "como’en este valle yeba,", "toz se’n han ito encantatos", "d’esta Villa pintoresca", "qu’entre el Cinca y el Barrosa,", "com’una sultana reina,", "bien rodiata de verchels,", "huertos, pratos, fuéns e cequias,", "que escoltan es grans pinas", "del Temblar e Rifarrera,", "d’Abesué, la Mascarina,", "l’Igualar, las Costaniechas,", "e altros que no se vey fin", "de Montinier a Pineta,", "de la Larri a Petramula,", "Sierra Chinipro, hasta Diera", "qu’a la vez son resguardatos", "per altos montes e pennas,", "qu’al puyar cerca del cielo", "tienen con nieu la capeza,", "igual que las Tres Erodes", "de la Ribera Pineta,", "que dicen es que la veyen", "que ye chirmana de Ordesa."], ["Buena cosa an d’isfrutato", "ixos frastés con la fresca", "redíndosene del Sol", "e de las playas més güenas,", "fendo escursions toz es días", "as troballos de la Iberica", "e a las minas de Parzán,", "p’admirar saltos e presas,", "las Centrals e Lavaderos", "de plomo que plata lleva;", "tas ibons de Marmurés,", "de la Larri, allá en Pineta", "el de Urdiceto el del Cau,", "més t’alla de Rifarrera;", "a vesitar chorros d’agua", "que abundan tanto en Pineta,", "con el chorro La Pinarra,", "camín del Puerto de Bielsa", "que pareix a aquers tan majos", "del Monasterio de Piedra;", "a buscar chizars e truchas,", "que tanto abundan en ésta;", "a prener baños de sol,", "que diz que salú almacenan,", "o a beber, de balde, el agua", "de fierro que mana cerca."], ["Bien ye verdá qu’ixa gente", "nos deixan güenas pecetas,", "alquilando cualque piso", "e comendo en fondas güenas..."], ["pero nos deixan sin let,", "sin güegos las gallineras,", "sin cecina no repostre,", "sin el magro e la conserva,", "sin la manteca de vaca,", "e sin el queso de güellas;", "es corrals bien solitarios,", "lo mismo las conejeras..."], ["en fin, que cuasi quedamos", "a la luna de Valencia,", "pos sólo yay pa comer", "el recado de tres mezclas", "el farinato con trunfas,", "las micolas no bien cuetas,", "vela torta con chichóns,", "e millazos e pasteras,", "amés de cualque menudo", "pa fer callos e chiretas."], ["Sabrás que el nueve y el diez", "ficioren aquí la Feria", "de bistiás de totas clases,", "d’esta Villa e las Aldeas,", "(Ixavierre, Chisagües,", "Acirón, Parzán e Espierba)", "es vacumens abundoren:", "vacas, bimas e dopleras,", "bueys, anullos e betiechos;", "pero yabió pocas ventas", "perque pagoren barato", "e es vendedos més quereban."], ["En cambio, toz es tendés,", "charlatans e turroneras,", "quinquillaires e altros “vivos”", "qu’en la Plaza Mayor yeba,", "ficioren, visé, negocio", "perque toz contentos yeran,", "sobre tot un zapater,", "que ganó unas mil pecetas."], ["Luego, el día del Pilar,", "según costumbre vieja,", "güen rebaño gente han feto", "una escursión a Pineta,", "pa festejar a la Virgen", "qu’en una ermita veneran,", "con una Misa e sermón,", "cantando gozos e ofertas;", "comiendo güenas lifaras,", "per la tarde un güen baile,", "armando luego una juerga..."], ["Ya fa dias s’acabó", "n’estas montañas la yerba", "e ahora tienen paixenter", "hasta Tosantos las güellas", "nos rastrullos e nos pratos", "qu’es raden hasta qu’es pelan;", "dimpues, ta la tierra baixa,", "pa tornar na primavera."], ["Me s’olvidaba decite", "qu’a librato tu parienta,", "la muller d’el siñor Maestro,", "un mocet, con buena estrela,", "que se pareix a su pay e a su may,", "según me cuentan."], ["No me ocurre més per hüe."], ["Que te cudies e que bebas", "vel gotet de vin del güen", "pa ‘espantar el frio en regla", "e pa qu’aguantes millor", "el mal genio de tu suegra."], ["T’abraza tu güen amigo,"]], "sign": ["Colaset de la Plañera", "Bielsa, agüerro 1928"], "who": "Colaset de la Plañera escribe desde Bielsa, en otoño, a su amigo Tonet, que vive en Puigbolea.", "about": "Ya se han ido los veraneantes y los ingenieros. Colaset describe el valle y las excursiones de los forasteros, se queja de que se han llevado la leche, los huevos y el queso, y cuenta la feria de ganado, la romería a Pineta el día del Pilar y la bajada de las ovejas a la tierra baja."}, {"id": "tiermas", "title": "De Tiermas a Bielsa", "year": "1930", "head": ["DE TIERMAS A BIELSA", "Carta escrita en belsetán,", "por un bañista de Tiermas", "a su oislo, que reside en Espierba", "(Valle de Pineta)", "Tiermas, 26 de Agosto", "de mil novecientos treinta"], "poem": [["Querida esposa Segunda,", "que pa yo yes la primera", "(e no quiera Dios qu’en jamás", "al contrario me suceda)."], ["Aquí me tiens resalada", "n’este Balneario de Tiermas", "ta’on he llegato as dos dias", "de haber salito de Bielsa."], ["Tenié güen viaje, a Dios gracias", "sin mariame la capeza", "sobre tot de Jaca aquí", "que yay güena carretera", "con us paisajes tan majos", "qu’asta l’alma triste alegran."], ["En Jaca (o como le dicen,", "del Pirineo la Perla)", "yeba mutus veraniantes", "que son prenendo la fresca", "e allí m’estié unas cuatre horas", "con uns amigos de Huesca", "en amistosa tertulia,", "(millor dito charradeta);", "yera el siñor Lavilla", "e su muller Catarecha", "(que son maestros en Calanda", "e antes ’l fueren de Bielsa)", "el siñor Sáchez de Castro", "que bien pareix un profeta."], ["Sabrás man recibito", "en pompa al llegar a esta,", "pos al baixame del auto", "e chitar el piet a tierra", "al vieme de valons", "cacherulo na capeza", "con sombrero de Sastago", "inclinato ta una orella", "calzando abarcas bien pinchas", "ligatas con abarqueras,", "chaqueta pinchata al huembro", "la faixa dica la culera", "la vara de petinchaina", "pa gayata na man dreta,", "el semblante campechano", "e con cara de franqueza", "me s’acercoren us mozos", "e altras tantas camareras", "a saludame e preneme", "toz es bultos e maletas", "la dueña me saludó", "con cariñosas zalemas", "e hasta per tú preguntó", "per es ninnos e ninnera;", "la verda qu’a yo estas cosas", "me causoren extrañeza,", "hasta que un güen ansotano", "me fició esta alvertencia,", "“ixo ye qu’en vel descuido", "t’abran visto la cartera”..."], ["Ascape de dame cuarto", "que lleva el numero trenta,", "m’en fue a viyer al medico", "pa que me fes la receta."], ["Este siñor, muy tratable,", "se conoix que tiene cencia,", "ye bien atento e se fija", "pa conoixer las dolencias", "e ordenar el tratamiento", "e regimen que convienga", "p’asegurase millor", "si el corazon me va en regla", "e el figado e las frechuras,", "se metió per las orellas", "dos tubos largos de goma", "que un relojet sosteneban,", "e mel paso per el pecho", "encima la camiseta."], ["Me explicó qué ye el que tiengo", "e me dió una papeleta", "pa qu’el bañero m’apreste", "en piscina preferencia", "baños con churros caliens", "nos currons e na ranera,", "nos tobillos, nas rodillas", "nos huembros e nas muñecas."], ["Hüe, he empecipiato a bañame", "que güena falta me feba", "pa sacame tanta roña", "como tenebe nas piernas", "e en altras partes del cuerpo", "que tu sabes e te piensas;", "pos no me ebe bañato", "(si no llevo mal la cuenta)", "ya va pa cinco u seis años", "desde que cayé en Pineta", "de grepas drento del Cinca", "apresiguiendo unas güellas,", "e pasando una palanga", "de madera mal sujeta,", "que luego tú pa ixucame", "(en traje de Adan e Eva,", "pero sin follas de parra", "ni tampoco de figuera)", "me estregores con esparto", "del burro la sudera", "quedando mes limpio e blanco", "que la flor de la azucena..."], ["Drento el baño foy ginasia", "con es brazos e las piernas,", "imitando el movimiento", "del que marcha en bicicleta..."], ["o del que muele café", "no mostrador de la tienda,", "o es trompazos de Paulino", "Uzcúdun cuan boxea;", "tamien doy carabirolas,", "quiero dar güeltas peleras,", "ensayandome a nadar", "boca abajo tripa a tierra."], ["En cuanto ha pasato ‘l tiempo", "(qu’el marca un reloj d’arena)", "me ixuco e me visto aprisa,", "e des piez a la capeza", "me tapo con una manta,", "d’ixas qu’icen de Palencia,", "que me pareixco a un golucho", "d’es que no emplegan careta;", "ligero m’en voy t’al cuarto", "a sudar cuasi una horeta,", "pero per ir tan tapato", "que cuasi marchabe a tientas,", "al llegar cerca la mía", "m’entivocato de puerta", "e me e ficato n’un cuarto", "que no me perteneceba,", "sin darme cuenta del cambio", "hasta encender una vela,", "e al destapame es dos güellos,", "m’alcuentro con tres mocetas,", "retrato de las Tres Gracias", "qu’en una cama yeran..."], ["Primeramente han chillato", "pero luego entre risetas,", "m’an encorrito a pillame", "a cerrar mes bien la puerta", "pa teneme mes segur", "e cascame la pelleja."], ["Al pronto, per el espanto,", "desmayato he caito en tierra;", "pero al levantame en brazos", "la más forzuda d’aqueras,", "he revivito e d’un brinco", "he saltato ta difuera,", "entrando no mio cuarto", "e cerrando con clau la puerta..."], ["!Que de güena m’e librato", "per tener garras ligeras!..."], ["La muller de Putifar", "furtó a José la capeta", "yo, sin manta m’e quedato", "per culpa d’ixas mocetas."], ["A mes del baño e las duchas,", "pa curar la carraspera", "me fan alentar uns tubos", "pareixitos a trompetas,", "la vapor que d’allí sale", "te sulfata de primera", "es pulmons e la garganta", "la nariz e hasta la luenga,", "aunque estoy qu’ixe estrumento", "no vale gran cosa güena;", "la carabina d’Ambrosio", "millor carga diz que lleva..."], ["A las horas de comer", "llego el primer ta la mesa,", "estoy que dengún me gana", "a sacar la tripa plena,", "pos ya que te cobran car", "tonto ye el que no aprovecha..."], ["”a igual precio, calzau d’hombre”", "deciba en Jaca una nena."], ["P’asegurame la fambre", "cuan nos gritan ta la mesa,", "me purgo toz es dias", "con un vaso de manesia."], ["Las comidas que nos sirven", "son abundantes e güenas;", "a campirol toz es platos", "me sirve la camarera,", "así qu’a veces m’apuro", "pa engullir alla en zageras."], ["Cuan llegamos as postres", "e veigo que nadie observa,", "con desimulo m’empocho", "un precieco, vela pera,", "cualque platano e manzana", "con bizcochos e galletas,", "qu’almaceno pas mocez,", "e pa tú, pa cuan te veiga."], ["Ixo sí, soy esplendido", "con mozos e camareras;", "yo les doy güenas propinas", "e las ganan a concencia..."], ["que ya sabes anda el carro", "engrasando bien las ruedas."], ["Toz es dias s’en va chens", "en va llegando altras nuevas;", "ayer llegó tia Cándida", "que con es kilos que pesa", "s’estropió a mitá camin", "el auto que la trayeba."], ["Como hüe tiengo galvana", "con este sol que crema,", "me canso ya d’escribir", "e foy punto hasta otra fecha."], ["Cudiate e cudiame es crios;", "de recuerdos a Marieta", "as parientes e as amigos,", "e pa tú tot el que quieras"]], "sign": ["de tu marido qu’el ye", "Colaset de la Plañera"], "who": "Colaset de la Plañera escribe desde el balneario de Tiermas a su mujer, Segunda, que está en Espierba.", "about": "El viaje por Jaca, la llegada al balneario vestido con el traje del valle, la visita al médico, los baños, el susto al entrar por error en el cuarto de tres muchachas y las comidas, de las que se guarda la fruta para los críos."}];
+const GL = [{"k": ["capeza"], "f": "capeza", "g": "cabeza", "ex": "le frató la capeza", "exg": "le agujereó la cabeza"}, {"k": ["güellas"], "f": "güella", "g": "oveja", "ex": "ya podenos pasar con las güellas d’agüerro", "exg": "ya podíamos pasar con las ovejas en otoño"}, {"k": ["agüerro"], "f": "agüerro", "g": "otoño", "ex": "ya podenos pasar con las güellas d’agüerro", "exg": "ya podíamos pasar con las ovejas en otoño"}, {"k": ["güellos"], "f": "güello", "g": "ojo", "ex": "es tuyos güellos", "exg": "tus ojos"}, {"k": ["nieu"], "f": "nieu", "g": "nieve", "ex": "me fotebe nieu", "exg": "me aplicaba nieve"}, {"k": ["pennas"], "f": "pen·na", "g": "peña", "n": "Escalona escribe nn sin punto volado; la morfología escribe pen·na para marcar la consonante geminada."}, {"k": ["ninnos"], "f": "nin·no", "g": "niño", "n": "Escalona escribe nn; la morfología, nin·no."}, {"k": ["chirmana"], "f": "chirmana", "g": "hermana", "ex": "tu chirmana", "exg": "tu hermana"}, {"k": ["pratos"], "f": "prato", "g": "prado", "ex": "el prato mío ye millor que l’altro", "exg": "mi prado es mejor que el otro"}, {"k": ["millor"], "f": "millor", "g": "mejor", "ex": "el prato mío ye millor que l’altro", "exg": "mi prado es mejor que el otro"}, {"k": ["fuéns"], "f": "fuen", "g": "fuente", "n": "Como chen ‘gente’ o puen ‘puente’, ha perdido la vocal final."}, {"k": ["cequias"], "f": "zequia", "g": "acequia", "ex": "tenenos una zequia en·n’o güerto", "exg": "teníamos una acequia en el huerto"}, {"k": ["chizars"], "f": "chizardo / chizard", "g": "rebeco", "ex": "un ziento chizardos", "exg": "un centenar de rebecos"}, {"k": ["puyar"], "f": "puyar", "g": "subir"}, {"k": ["let"], "f": "let", "g": "leche", "ex": "s’espintaba la let", "exg": "se desnataba la leche"}, {"k": ["trunfas"], "f": "trunfa", "g": "patata", "ex": "¿ya has cabato las trunfas?", "exg": "¿ya has cavado las patatas?"}, {"k": ["millazos"], "f": "millazo", "g": "torta hecha con harina de mijo", "ex": "cuan mamá nos feba aquers millazos", "exg": "cuando mamá nos preparaba aquellas tortas"}, {"k": ["cuetas"], "f": "cueto / cueta", "g": "cocido, cocida", "ex": "feban torta bien cueta", "exg": "hacían torta bien cocida"}, {"k": ["bistiás", "bistiar"], "f": "bistiar", "g": "ganado", "ex": "acabaré per sacar-me de debán el bistiar", "exg": "acabaré por sacarme el ganado"}, {"k": ["betiechos"], "f": "betiecho / betiecha", "g": "ternero, ternera"}, {"k": ["crapitos"], "f": "crapito / crapita", "g": "cabrito, cabrita"}, {"k": ["paixenter"], "f": "paixentar", "g": "pacentar, pastar", "ex": "iban a paixentar astí", "exg": "iban a pacentar ahí", "n": "Escalona usa paixenter como sustantivo: las ovejas «tienen paixenter», tienen pasto."}, {"k": ["tierra baixa"], "f": "tierra baixa", "g": "la tierra baja, adonde bajaban los rebaños en invierno", "ex": "n’a tierra baixa las i teneban tot el ibierno", "exg": "en la tierra baja las tenían todo el invierno"}, {"k": ["rebaño"], "f": "rabaño (de)", "g": "mucho, muchos", "ex": "per allí i eba un rabaño de casas", "exg": "por allí había muchas casas", "n": "Además de ‘rebaño’, la palabra sirve para decir ‘mucho’: «güen rebaño gente» es ‘mucha gente’."}, {"k": ["güena cosa", "Buena cosa"], "f": "buena cosa (de)", "g": "mucho, muchos", "ex": "pasar buena cosa fambre", "exg": "pasar mucha hambre"}, {"k": ["guaires"], "f": "guaire, guaires", "g": "mucho, muchos (en frases negativas)", "ex": "no tenebez guaire rebaño", "exg": "no teníais mucho rebaño"}, {"k": ["mica"], "f": "mica", "g": "nada, ningún", "ex": "yo no i creigo mica", "exg": "yo no creo nada (en él)"}, {"k": ["vel", "vela torta", "vela pera", "bel"], "f": "bel, bela", "g": "algún, alguna", "ex": "teneban miedo es gabachos que les llebanos bela epidemia", "exg": "tenían miedo los gabachos de que les llevásemos alguna epidemia", "n": "Escalona escribe vel o vela con v."}, {"k": ["cualque"], "f": "cualque", "g": "algún, alguna", "ex": "cualque bez", "exg": "alguna vez"}, {"k": ["chuñir"], "f": "chuñir", "g": "uncir", "ex": "se chuñiba el par e labraba era", "exg": "se uncía el par y labraba ella", "n": "Escalona juega con la palabra: tras tanto baile, el cura tendrá que «uncir» a muchas parejas."}, {"k": ["chovens", "choven"], "f": "choben", "g": "joven"}, {"k": ["maitin"], "f": "maitín", "g": "mañana", "ex": "maitín de maitins", "exg": "mañana por la mañana"}, {"k": ["aduben"], "f": "adubir", "g": "dar abasto", "ex": "no i adube", "exg": "no da abasto (a servir)"}, {"k": ["catieras"], "f": "catiera", "g": "escaño, banco junto al fuego", "ex": "el·l’ebas meso debaixo la catiera", "exg": "lo habías puesto debajo del escaño"}, {"k": ["güela"], "f": "güelo / güela", "g": "abuelo, abuela"}, {"k": ["mullés"], "f": "muller, mullers", "g": "mujer, mujeres", "n": "Escalona escribe el plural tal como se pronuncia: la morfología explica que la -r se pierde en el plural (/mullés/), aunque se escriba mullers."}, {"k": ["muller"], "f": "muller", "g": "mujer", "ex": "es parientes de tu muller deben estar chupitos", "exg": "los parientes de tu mujer deben estar empapados"}, {"k": ["man dreta"], "f": "man dreta", "g": "mano derecha"}, {"k": ["piet", "piez"], "f": "piet / piez", "g": "pie, pies"}, {"k": ["clau"], "f": "clau", "g": "llave (y también clavo)"}, {"k": ["fambre"], "f": "fambre", "g": "hambre", "ex": "més listo que la fambre", "exg": "más listo que el hambre"}, {"k": ["chens"], "f": "chen", "g": "gente"}, {"k": ["hüe"], "f": "güe", "g": "hoy", "ex": "güe ha dito que no le feba tanto mal", "exg": "hoy ha dicho que no le hacía tanto mal", "n": "Escalona escribe hüe; la morfología, güe."}, {"k": ["estoy qu", "estoy que"], "f": "estar que", "g": "creer que", "ex": "yo estoi que dizioren ésta", "exg": "yo creo que dijeron ésta"}, {"k": ["yes"], "f": "yes", "g": "eres, estás", "ex": "¿e tú no quieres que sepan que yes de la Billa?", "exg": "¿y tú no quieres que sepan que eres de Bielsa?"}, {"k": ["mutus"], "f": "muto", "g": "mucho, muy", "ex": "pasemos mutas oras charrando en belsetán", "exg": "pasamos muchas horas hablando en belsetán", "n": "El ejemplo procede de los agradecimientos que los autores escribieron en belsetán."}, {"k": ["pay", "may"], "f": "pai / mai", "g": "padre / madre", "n": "Escalona escribe pay y may."}, {"k": ["dimpues"], "f": "dimpués", "g": "después"}, {"k": ["cuasi"], "f": "cuasi", "g": "casi"}, {"k": ["crema"], "f": "cremar", "g": "quemar", "n": "De ahí el participio cremato, cremata ‘quemado, quemada’. En la carta de 1928, la crema es el calor del que huyen los veraneantes."}];
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const keys=[];GL.forEach((e,i)=>e.k.forEach(k=>keys.push([k,i])));
+keys.sort((a,b)=>b[0].length-a[0].length);
+const re=new RegExp("(?<![\\p{L}·])("+keys.map(k=>k[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&")).join("|")+")(?![\\p{L}·])","giu");
+const lookup=w=>{const lw=w.toLowerCase();const f=keys.find(k=>k[0].toLowerCase()===lw);return f?f[1]:-1;};
+function mark(line,used){
+  let out="",last=0;
+  line.replace(re,(m,_g,off)=>{const i=lookup(m);if(i<0)return m;used.add(i);out+=esc(line.slice(last,off))+`<button class="w" data-g="${i}">${esc(m)}</button>`;last=off+m.length;return m;});
+  return out+esc(line.slice(last));
+}
+function entry(i){const e=GL[i];return `<b>${esc(e.f)}</b> ‘${esc(e.g)}’`+(e.ex?`<div class="x">${esc(e.ex)} ‘${esc(e.exg)}’</div>`:"")+(e.n?`<div class="n">${esc(e.n)}</div>`:"");}
+function show(id){
+  const t=TEXTS.find(x=>x.id===id)||TEXTS[0];
+  document.querySelectorAll(".pick").forEach(b=>b.setAttribute("aria-pressed",b.dataset.t===t.id));
+  const used=new Set();
+  const st=t.poem.map(s=>`<p class="st">${s.map(l=>`<span class="l">${mark(l,used)}</span>`).join("")}</p>`).join("");
+  document.getElementById("poem").innerHTML=`<div class="about"><h3>${esc(t.title)}</h3><p class="who">${t.year} · ${esc(t.who)}</p><p>${esc(t.about)}</p></div>
+    <div class="hd" style="margin-top:22px">${t.head.map(h=>`<div>${esc(h)}</div>`).join("")}</div>${st}<div class="sg">${t.sign.map(esc).join("<br>")}</div>`;
+  const list=[...used].sort((a,b)=>GL[a].f.localeCompare(GL[b].f,"es"));
+  document.getElementById("gl").innerHTML=`<h3>Palabras de esta carta</h3><dl>${list.map(i=>`<div class="e" id="g-${i}"><dt>${esc(GL[i].f)}</dt><dd>‘${esc(GL[i].g)}’${GL[i].ex?`<div class="x">${esc(GL[i].ex)} ‘${esc(GL[i].exg)}’</div>`:""}${GL[i].n?`<div class="n">${esc(GL[i].n)}</div>`:""}</dd></div>`).join("")}</dl><p class="cite" style="margin-top:12px">Explicaciones y ejemplos: morfología Lozano-Saludas (2005). Todas las formas están atestadas.</p>`;
+  document.querySelectorAll(".w[data-g]").forEach(b=>b.onclick=()=>open_(+b.dataset.g,b));
+  try{history.replaceState(null,"","#"+t.id)}catch(e){}
+}
+let opener=null;
+function open_(i,btn){
+  opener=btn;
+  document.querySelectorAll(".gl .e").forEach(e=>e.classList.toggle("on",e.id==="g-"+i));
+  document.getElementById("popbody").innerHTML=entry(i)+`<div class="n" style="margin-top:4px">Fuente: morfología Lozano-Saludas (2005)</div>`;
+  const p=document.getElementById("pop");p.hidden=false;document.getElementById("popclose").focus();
+}
+document.getElementById("popclose").onclick=()=>{document.getElementById("pop").hidden=true;if(opener)opener.focus();};
+document.addEventListener("keydown",e=>{if(e.key==="Escape")document.getElementById("popclose").click();});
+document.querySelectorAll(".pick").forEach(b=>b.onclick=()=>show(b.dataset.t));
+show((location.hash||"").slice(1)||TEXTS[0].id);
+</script>
+<footer>
+  <div class="col">
+    <p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
+    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Contenidos con licencia CC BY-SA.</p>
+  </div>
+</footer>
+</body>
+</html>

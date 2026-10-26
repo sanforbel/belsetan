@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Historia del estudio del belsetán</title>
+<meta name="description" content="Quién ha estudiado el belsetán y cómo, desde las encuestas de Badia en 1944 hasta hoy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one readable column; a mountain-skyline band opens the page, then sections stacked like stops on the way up the valley. */
+:root{
+  --bg:#e9ece6; --surface:#f7f8f4; --ink:#1f2a24; --muted:#56635a;
+  --line:#c9cfc4; --pine:#2f5d46; --pine-soft:#dbe7df; --ochre:#b5762a; --peak:#c3cbc0;
+  --f-display:"Zilla Slab",Georgia,serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141a17; --surface:#1c2420; --ink:#e6ebe5; --muted:#a3aea5;
+  --line:#33403a; --pine:#7fbf9b; --pine-soft:#22332a; --ochre:#dca35c; --peak:#26302b;
+  color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.6}
+a{color:var(--pine)}
+a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.col{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.hero{padding-block:56px 0;position:relative}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(46px,11vw,92px);line-height:.95;margin:.15em 0 .2em;letter-spacing:-.01em}
+.hero p.lede{font-size:21px;max-width:34ch;margin:0 0 28px;color:var(--ink)}
+.skyline{display:block;width:100%;height:auto;max-height:140px;margin-top:8px}
+main{display:flex;flex-direction:column;gap:56px;padding-block:44px 64px}
+h2{font-family:var(--f-display);font-size:30px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+section p{margin:0 0 14px;max-width:64ch}
+.cite{font-size:14px;color:var(--muted)}
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:8px}
+.trait{border-top:3px solid var(--pine);background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.trait b{font-family:var(--f-display);font-size:22px;color:var(--pine);font-weight:700}
+.trait span{font-size:15px;color:var(--muted);line-height:1.45}
+.res{display:flex;flex-direction:column;gap:12px}
+.card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+a.card:hover{border-color:var(--pine)}
+.card .ico{flex:0 0 44px;height:44px;border-radius:10px;background:var(--pine-soft);display:grid;place-items:center}
+.card .ico svg{width:28px;height:24px}
+.card h3{margin:0;font-family:var(--f-display);font-size:22px}
+.card p{margin:2px 0 0;font-size:16px;color:var(--muted)}
+.card.soon{opacity:.75;border-style:dashed}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--pine-soft);color:var(--pine);margin-left:6px;vertical-align:middle}
+.rules{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.rules li{padding-left:16px;border-left:2px solid var(--ochre);max-width:64ch}
+blockquote{margin:6px 0 16px;padding:4px 0 4px 16px;border-left:3px solid var(--ochre);font-style:italic;max-width:60ch}
+.biblio{padding-left:20px;margin:0;display:grid;gap:8px;font-size:16px}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:15px;color:var(--muted)}
+footer p{margin:0 0 6px}
+</style>
+<style>
+h1{font-size:clamp(40px,9vw,76px)}
+.tl{list-style:none;margin:8px 0 0;padding:0;position:relative}
+.tl::before{content:"";position:absolute;left:66px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl li{display:grid;grid-template-columns:56px 1fr;gap:22px;padding-block:12px;position:relative}
+.tl li::after{content:"";position:absolute;left:61px;top:22px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:2px solid var(--pine)}
+.tl li.key::after{background:var(--pine)}
+.tl .y{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:20px;color:var(--ochre);text-align:right;font-variant-numeric:tabular-nums;line-height:1.3}
+.tl h3{font-family:"Zilla Slab",Georgia,serif;font-size:21px;margin:0 0 4px;line-height:1.25}
+.tl p{margin:0 0 4px;font-size:17px;max-width:60ch}
+.tl .cite{font-size:13px}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.box h3{font-family:"Zilla Slab",Georgia,serif;font-size:21px;margin:0 0 6px}
+.box p{margin:0 0 8px;font-size:16px}
+blockquote.q{font-style:italic;border-left:3px solid var(--ochre);margin:8px 0 12px;padding:2px 0 2px 14px;max-width:60ch}
+@media (max-width:480px){.tl::before{left:53px}.tl li{grid-template-columns:40px 1fr;gap:28px}.tl li::after{left:48px}.tl .y{font-size:17px}}
+</style>
+<style>
+.topnav{background:var(--surface);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px}
+.topnav .brand{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:19px;color:var(--pine);text-decoration:none;margin-right:auto}
+.topnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.topnav a.tab{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
+.topnav a.tab:hover{color:var(--ink)}
+.topnav a.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ochre)}
+.topnav a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Secciones"><div class="in"><a class="brand" href="../">Belsetán</a><ul><li><a class="tab" href="../">Inicio</a></li><li><a class="tab" href="../anchel/">Ánchel</a></li><li><a class="tab" href="../historia/" aria-current="page">Historia</a></li><li><a class="tab" href="../textos/">Textos</a></li><li><a class="tab" href="../juegos/rebano/">Juegos</a></li></ul></div></nav>
+<header class="hero">
+  <div class="col">
+    <p class="eyebrow">Ochenta años de estudio</p>
+    <h1>Quién ha escuchado el belsetán</h1>
+    <p class="lede">Desde la tarde de 1944 en que Badia llegó a Bielsa hasta el diccionario de Ánchel, el belsetán ha tenido pocos hablantes y bastantes estudiosos.</p>
+  </div>
+  <svg class="skyline" viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 140 L0 92 L70 60 L120 84 L190 30 L250 74 L310 48 L370 88 L440 22 L500 70 L560 52 L620 90 L690 40 L750 72 L800 58 L800 140 Z" fill="var(--peak)"/>
+    <path d="M0 140 L0 116 L90 96 L170 112 L260 90 L350 114 L450 94 L540 116 L640 100 L730 118 L800 104 L800 140 Z" fill="var(--pine)" opacity=".35"/>
+  </svg>
+</header>
+
+<main class="col">
+
+  <section id="cronologia">
+    <h2>Cronología</h2>
+    <ol class="tl">
+      <li><span class="y">1938</span><div><h3>Bielsa en un estudio sobre el aragonés y el bearnés</h3><p>William D. Elcock incluye Bielsa entre los puntos de encuesta de <i>De quelques affinités phonétiques entre l’aragonais et le béarnais</i>, y registra allí los participios en <i>-ato</i> e <i>-ito</i>.</p><p class="cite">Fuente: Lozano y Saludas (2005)</p></div></li>
+      <li><span class="y">1944</span><div><h3>Una sola tarde de encuestas</h3><p>Antoni M. Badia i Margarit recorre catorce localidades del Alto Aragón para su tesis doctoral. En Bielsa solo puede hacer encuestas durante la tarde de su llegada, pero recoge unas quinientas palabras y califica la situación de la lengua de «agonizante».</p><p class="cite">Fuente: Quintana, introducción a la reedición de Badia (2015)</p></div></li>
+      <li class="key"><span class="y">1947</span><div><h3>Quince días en el valle</h3><p>Con una beca de la Estación de Estudios Pirenaicos, Badia vuelve a Bielsa del 23 de julio al 12 de agosto. Llega a pie desde Salinas, porque la carretera está cortada.</p><p class="cite">Fuente: Quintana, introducción a la reedición de Badia (2015)</p></div></li>
+      <li class="key"><span class="y">1950</span><div><h3><i>El habla del valle de Bielsa</i></h3><p>Badia publica el primer estudio amplio del belsetán, con más de tres mil voces y los paradigmas completos de veintisiete verbos. Lo acompaña un artículo en francés en el que defiende a las mujeres como informantes y recuerda a la tía Roseta.</p><p class="cite">Fuente: Quintana, introducción a la reedición de Badia (2015)</p></div></li>
+      <li><span class="y">—</span><div><h3>Atlas y diccionarios</h3><p>Bielsa aparece en el <i>Atlas Lingüístico de la Península Ibérica</i> (ALPI) y en el <i>Atlas Lingüístico y Etnográfico de Aragón, Navarra y Rioja</i> (ALEANR). Los materiales de Badia pasan al <i>Diccionario dialectal del Pirineo aragonés</i> de Gerhard Rohlfs, al <i>Diccionario aragonés</i> de Rafael Andolz y al <i>Endize de bocables de l’aragonés</i>.</p><p class="cite">Fuente: Lozano y Saludas (2005)</p></div></li>
+      <li><span class="y">1973</span><div><h3>La primera mirada sociolingüística</h3><p>J. J. Pujadas publica «Etnolingüística del valle de Bielsa». Agrupa a los hablantes por edad, profesión y lugar de residencia y recoge lo que los belsetanes piensan de su lengua.</p><p class="cite">Fuente: Lozano y Saludas (2005)</p></div></li>
+      <li><span class="y">1987</span><div><h3>Belsetán en una antología</h3><p>Francho Nagore incluye una sección de textos belsetanes en la <i>Replega de testos en aragonés dialeutal de o sieglo XX</i>. Entre ellos está el poema de Ánchel Loís Saludas <i>Espierba, lo mío lugar</i>.</p><p class="cite">Fuente: Nagore (1987)</p></div></li>
+      <li><span class="y">1991</span><div><h3>Un texto belsetán, analizado</h3><p>Brian Mott estudia lingüísticamente una grabación en «Un texto belsetán». En 1992-1993 compara los usos de ser y estar con los de Gistaín, y en 1994, el léxico del aspecto físico y del carácter en chistabino y en belsetán.</p><p class="cite">Fuente: Lozano y Saludas (2005)</p></div></li>
+      <li><span class="y">2001</span><div><h3><i>Belsetán a ixambre</i></h3><p>Fernando Romanos publica en <i>Luenga &amp; fablas</i> una pequeña recopilación de léxico del valle, con algunas frases y aclaraciones. Con Fernando Blas graba además vídeos con hablantes del valle.</p><p class="cite">Fuente: Lozano y Saludas (2005)</p></div></li>
+      <li><span class="y">2004</span><div><h3>Cinco meses hablando belsetán</h3><p>Chabier Lozano y Ángel Saludas trabajan en el valle durante el verano y el otoño, con una subvención del CEDESOR. Recogen sobre todo conversaciones espontáneas y hablan siempre en belsetán con los informantes.</p><p class="cite">Fuente: Lozano y Saludas (2005)</p></div></li>
+      <li class="key"><span class="y">2005</span><div><h3><i>Aspectos morfosintácticos del belsetán</i></h3><p>Lozano y Saludas publican una extensa descripción gramatical del belsetán de comienzos de este siglo. Incluye en un anexo las cartas en verso de Leonardo Escalona y textos de tradición oral.</p><p class="cite">Fuente: Lozano y Saludas (2005)</p></div></li>
+      <li><span class="y">2015</span><div><h3>Badia, reeditado</h3><p>Aladrada reedita <i>El habla del valle de Bielsa</i>, con introducción de Artur Quintana. En 2016 publica <i>Entre manuscritos y encuestas</i>, que reúne el resto de los trabajos aragoneses de Badia.</p><p class="cite">Fuente: Quintana, introducción a la reedición de Badia (2015)</p></div></li>
+      <li><span class="y">2025</span><div><h3><i>21.000 palabras</i></h3><p>Maxi Campo prepara un documental sobre Ánchel y el diccionario de unas 21.000 palabras que ha reunido desde los diecisiete años.</p><p class="cite">Fuente: elDiario.es (2025)</p></div></li>
+    </ol>
+  </section>
+
+  <section id="metodo">
+    <h2>Dos maneras de escuchar</h2>
+    <div class="two">
+      <div class="box">
+        <h3>Con cuestionario</h3>
+        <p>Badia trabajó con un cuestionario basado en el del <i>Atlas Lingüístic de Catalunya</i>, aunque recogía también lo que los informantes le contaban al margen de las preguntas.</p>
+        <p>Él mismo advirtió que su trabajo «no es definitivo, sino algo susceptible de ir perfeccionándose con nuevas aportaciones».</p>
+        <p class="cite">Fuente: Quintana, introducción a la reedición de Badia (2015)</p>
+      </div>
+      <div class="box">
+        <h3>Con conversación</h3>
+        <p>Lozano y Saludas prefirieron escuchar conversaciones espontáneas y usaron las encuestas solo para resolver dudas. Observaron que, cuando una persona se sabía grabada, castellanizaba más su forma de hablar, y que la castellanización desaparecía cuando se relajaba.</p>
+        <p class="cite">Fuente: Lozano y Saludas (2005)</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nombre">
+    <h2>Lo que dicen en el valle</h2>
+    <p>Los habitantes del valle llaman a su lengua de una sola manera: <b>belsetán</b>. Según Lozano y Saludas, tener un nombre propio para ella muestra cierta conciencia lingüística sin desprecio.</p>
+    <p>También recogen una anécdota. En el vecino valle de Chistau llamaban <i>trencatos</i> a los de Bielsa, porque lo que más les llamaba la atención del belsetán eran los participios en <i>-ato</i> e <i>-ito</i>.</p>
+    <p>La lengua no se dejó de transmitir por vergüenza, sino porque las generaciones intermedias no le veían utilidad para la vida actual. Los autores añaden que en esa falta de valoración también influyó la represión.</p>
+    <p class="cite">Fuente: Lozano y Saludas (2005), «Conciencia lingüística».</p>
+  </section>
+
+  <section id="pendiente">
+    <h2>Lo que queda por hacer</h2>
+    <p>En 2005, Lozano y Saludas echaban en falta un estudio sociolingüístico que mostrara qué piensan y creen los hablantes sobre su lengua. Y el diccionario de Ánchel sigue esperando a ser publicado.</p>
+  </section>
+
+  <section id="fuentes">
+    <h2>Fuentes</h2>
+    <ol class="biblio">
+      <li>Lozano, Chabier y Saludas, Ángel (2005): <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>. Zaragoza: Gara d’Edizions. Apartados «Estudios anteriores sobre el belsetán», «Metodología» y «Conciencia lingüística».</li>
+      <li>Quintana i Font, Artur (2015): introducción a Badia i Margarit, Antoni M., <i>El habla del valle de Bielsa (Pirineo aragonés)</i>. Zaragoza: Aladrada, col. «Biblioteca de las lenguas de Aragón», n.º 17.</li>
+      <li>Badia i Margarit, Antoni M. (2016): <i>Entre manuscritos y encuestas</i>. Edición de Artur Quintana. Zaragoza: Aladrada, n.º 18.</li>
+      <li>Nagore Laín, Francho (ed.) (1987): <i>Replega de testos en aragonés dialeutal de o sieglo XX</i>, tomo 1.</li>
+      <li>Canales, Candela (2025): reportaje sobre Ánchel Saludas y el documental <i>21.000 palabras</i>. <i>elDiario.es</i>, 11 de abril de 2025. <a href="https://www.eldiario.es/aragon/cultura/pastor-pirineo-recopilado-21-000-palabras-belsetan-variante-aragones-hablan-20-personas_1_12199836.html">Leer el reportaje</a>.</li>
+    </ol>
+  </section>
+
+</main>
+<footer>
+  <div class="col">
+    <p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
+    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Contenidos con licencia CC BY-SA.</p>
+  </div>
+</footer>
+</body>
+</html>

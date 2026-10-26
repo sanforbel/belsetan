@@ -76,13 +76,24 @@ footer{font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:
 footer p{margin:0;max-width:65ch}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
+<style>
+.topnav{background:var(--surface);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px}
+.topnav .brand{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:19px;color:var(--pine);text-decoration:none;margin-right:auto}
+.topnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.topnav a.tab{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
+.topnav a.tab:hover{color:var(--ink)}
+.topnav a.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ochre)}
+.topnav a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+</style>
 </head>
 <body>
+<nav class="topnav" aria-label="Secciones"><div class="in"><a class="brand" href="../../">Belsetán</a><ul><li><a class="tab" href="../../">Inicio</a></li><li><a class="tab" href="../../anchel/">Ánchel</a></li><li><a class="tab" href="../../historia/">Historia</a></li><li><a class="tab" href="../../textos/">Textos</a></li><li><a class="tab" href="../../juegos/rebano/" aria-current="page">Juegos</a></li></ul></div></nav>
 
 
 <div class="wrap">
   <header>
-    <div class="eyebrow"><a href="../../" style="color:inherit">← Belsetán</a> · juego de morfología</div>
+    <div class="eyebrow">Juego de morfología</div>
     <h1>Junta tu <em>rebaño</em> de güellas</h1>
     <p class="lede">Cada acierto suma una güella al rebaño. Todas las formas belsetanas del juego están atestadas en la morfología de Chabier Lozano y Ángel Saludas. No hay ninguna inventada.</p>
   </header>
