@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Aula · Belsetán</title>
+<meta name="description" content="Unidades didácticas imprimibles para aprender belsetán en clase, con formas atestadas y solucionario.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one readable column; a mountain-skyline band opens the page, then sections stacked like stops on the way up the valley. */
+:root{
+  --bg:#e9ece6; --surface:#f7f8f4; --ink:#1f2a24; --muted:#56635a;
+  --line:#c9cfc4; --pine:#2f5d46; --pine-soft:#dbe7df; --ochre:#b5762a; --peak:#c3cbc0;
+  --f-display:"Zilla Slab",Georgia,serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141a17; --surface:#1c2420; --ink:#e6ebe5; --muted:#a3aea5;
+  --line:#33403a; --pine:#7fbf9b; --pine-soft:#22332a; --ochre:#dca35c; --peak:#26302b;
+  color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.6}
+a{color:var(--pine)}
+a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.col{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.hero{padding-block:56px 0;position:relative}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(46px,11vw,92px);line-height:.95;margin:.15em 0 .2em;letter-spacing:-.01em}
+.hero p.lede{font-size:21px;max-width:34ch;margin:0 0 28px;color:var(--ink)}
+.skyline{display:block;width:100%;height:auto;max-height:140px;margin-top:8px}
+main{display:flex;flex-direction:column;gap:56px;padding-block:44px 64px}
+h2{font-family:var(--f-display);font-size:30px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+section p{margin:0 0 14px;max-width:64ch}
+.cite{font-size:14px;color:var(--muted)}
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:8px}
+.trait{border-top:3px solid var(--pine);background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.trait b{font-family:var(--f-display);font-size:22px;color:var(--pine);font-weight:700}
+.trait span{font-size:15px;color:var(--muted);line-height:1.45}
+.res{display:flex;flex-direction:column;gap:12px}
+.card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+a.card:hover{border-color:var(--pine)}
+.card .ico{flex:0 0 44px;height:44px;border-radius:10px;background:var(--pine-soft);display:grid;place-items:center}
+.card .ico svg{width:28px;height:24px}
+.card h3{margin:0;font-family:var(--f-display);font-size:22px}
+.card p{margin:2px 0 0;font-size:16px;color:var(--muted)}
+.card.soon{opacity:.75;border-style:dashed}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--pine-soft);color:var(--pine);margin-left:6px;vertical-align:middle}
+.rules{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.rules li{padding-left:16px;border-left:2px solid var(--ochre);max-width:64ch}
+blockquote{margin:6px 0 16px;padding:4px 0 4px 16px;border-left:3px solid var(--ochre);font-style:italic;max-width:60ch}
+.biblio{padding-left:20px;margin:0;display:grid;gap:8px;font-size:16px}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:15px;color:var(--muted)}
+footer p{margin:0 0 6px}
+</style>
+<style>
+h1{font-size:clamp(40px,9vw,76px)}
+.unit{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px;display:grid;gap:14px}
+.unit h3{font-family:"Zilla Slab",Georgia,serif;font-size:26px;margin:0}
+.unit .meta{display:flex;flex-wrap:wrap;gap:6px 18px;font-size:14px;color:var(--muted)}
+.unit ol{margin:0;padding-left:22px;font-size:16px}
+.dl{display:flex;flex-wrap:wrap;gap:10px}
+.dl a{font-weight:600;text-decoration:none;border-radius:999px;padding:10px 18px;border:1px solid var(--pine);color:var(--pine)}
+.dl a.main{background:var(--pine);color:var(--surface)}
+.dl a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.state{font-size:14px;border-left:3px solid var(--ochre);padding-left:12px;color:var(--muted)}
+.soon{opacity:.75;border-style:dashed}
+</style>
+<style>
+.topnav{background:var(--surface);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px}
+.topnav .brand{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:19px;color:var(--pine);text-decoration:none;margin-right:auto}
+.topnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.topnav a.tab{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
+.topnav a.tab:hover{color:var(--ink)}
+.topnav a.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ochre)}
+.topnav a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Secciones"><div class="in"><a class="brand" href="../">Belsetán</a><ul><li><a class="tab" href="../">Inicio</a></li><li><a class="tab" href="../valle/">El valle</a></li><li><a class="tab" href="../anchel/">Ánchel</a></li><li><a class="tab" href="../historia/">Historia</a></li><li><a class="tab" href="../textos/">Textos</a></li><li><a class="tab" href="../juegos/">Juegos</a></li><li><a class="tab" href="../aula/" aria-current="page">Aula</a></li><li><a class="tab" href="../colabora/">Colabora</a></li></ul></div></nav>
+<header class="hero">
+  <div class="col">
+    <p class="eyebrow">Unidades didácticas</p>
+    <h1>Aula</h1>
+    <p class="lede">Fichas imprimibles para trabajar el belsetán en clase. Están pensadas para alumnado de Aragón y para que las use un hablante del valle en sus clases.</p>
+  </div>
+  <svg class="skyline" viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 140 L0 92 L70 60 L120 84 L190 30 L250 74 L310 48 L370 88 L440 22 L500 70 L560 52 L620 90 L690 40 L750 72 L800 58 L800 140 Z" fill="var(--peak)"/>
+    <path d="M0 140 L0 116 L90 96 L170 112 L260 90 L350 114 L450 94 L540 116 L640 100 L730 118 L800 104 L800 140 Z" fill="var(--pine)" opacity=".35"/>
+  </svg>
+</header>
+
+<main class="col">
+  <section id="como">
+    <h2>Cómo son las unidades</h2>
+    <p>Cada unidad parte de un texto auténtico en belsetán y propone actividades de comprensión, de observación de la lengua, de comparación con otras lenguas y de reflexión sobre la diversidad lingüística. Todas las formas belsetanas están documentadas y llevan su fuente.</p>
+    <p>Las actividades marcadas como <b>Con un hablante</b> están pensadas para cuando la clase la da una persona que habla belsetán: leer en voz alta, comparar con el belsetán de hoy y escribir alguna frase con su ayuda.</p>
+    <p>Cada unidad tiene dos versiones en PDF: la del alumnado, con espacio para escribir, y la de quien imparte la clase, con las soluciones y algunas orientaciones.</p>
+  </section>
+
+  <section id="unidades">
+    <h2>Unidades</h2>
+    <div class="unit">
+      <h3>1. El valle y su lengua</h3>
+      <div class="meta"><span>Texto: «Bielsa», carta de Leonardo Escalona (1928)</span><span>3 sesiones de 50 minutos</span><span>A partir de 12 años</span></div>
+      <ol>
+        <li>Antes de leer: el valle, sus pueblos y su lengua</li>
+        <li>Leemos: la carta de Colaset de la Plañera</li>
+        <li>Comprendemos</li>
+        <li>Observamos la lengua: el artículo <i>es</i>, la conjunción <i>e</i> y los participios en <i>-ato</i> e <i>-ito</i></li>
+        <li>Pensamos: por qué se deja de transmitir una lengua</li>
+        <li>Tarea final: contesta a Colaset</li>
+      </ol>
+      <div class="dl"><a class="main" href="unidad-1/el-valle-y-su-lengua-alumnado.pdf">Descargar ficha del alumnado (PDF)</a><a href="unidad-1/el-valle-y-su-lengua-solucionario.pdf">Descargar solucionario (PDF)</a></div>
+      <p class="state">Versión de prueba, pendiente de que la revise un hablante del valle.</p>
+    </div>
+  </section>
+
+  <section id="licencia">
+    <p class="cite">Unidades elaboradas por Sandra Fortanet (@sanforbel). Puedes imprimirlas, compartirlas y adaptarlas citando la autoría: los textos propios tienen licencia CC BY-SA. Los fragmentos citados de otras obras pertenecen a sus autores y editores; los de la morfología de Lozano y Saludas se reproducen con autorización de Gara d’Edizions.</p>
+  </section>
+</main>
+<footer>
+  <div class="col">
+    <p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
+    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Textos propios con licencia CC BY-SA. Los fragmentos citados de otras obras pertenecen a sus autores y editores.</p>
+  </div>
+</footer>
+</body>
+</html>
