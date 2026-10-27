@@ -53,6 +53,7 @@ blockquote{margin:6px 0 16px;padding:4px 0 4px 16px;border-left:3px solid var(--
 .biblio{padding-left:20px;margin:0;display:grid;gap:8px;font-size:16px}
 footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:15px;color:var(--muted)}
 footer p{margin:0 0 6px}
+.sub{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}.sub a{font-weight:600;font-size:15px;text-decoration:none;padding:6px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}.sub a[aria-current="page"]{border-color:var(--pine);color:var(--ink);background:var(--pine-soft)}
 </style>
 <style>
 h1{font-size:clamp(40px,9vw,76px)}
@@ -117,6 +118,7 @@ h1{font-size:clamp(40px,9vw,76px)}
 </header>
 
 <main class="col">
+  <nav class="sub" aria-label="Tipos de texto"><a href="" aria-current="page">Cartas de Escalona</a><a href="tradicion-oral/">Tradición oral</a></nav>
 
   <section id="autor">
     <h2>Leonardo Escalona</h2>
@@ -144,7 +146,7 @@ h1{font-size:clamp(40px,9vw,76px)}
     <h2>Fuentes</h2>
     <ol class="biblio">
       <li>Escalona, Leonardo: cartas en verso «Las fiestas de San Medardo» (Benabarre, 1927), «Bielsa» (1928) y «De Tiermas a Bielsa» (1930). Texto según el anexo I de Lozano y Saludas (2005). Su obra está editada también como <i>Obra en aragonés belsetán</i> (Xordica, 2012).</li>
-      <li>Lozano, Chabier y Saludas, Ángel (2005): <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>. Zaragoza: Gara d’Edizions. Fuente de todas las explicaciones del glosario.</li>
+      <li>Lozano, Chabier y Saludas, Ángel (2005): <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>. Zaragoza: Gara d’Edizions. Fuente de todas las explicaciones del glosario. Ejemplos reproducidos con autorización de Gara d’Edizions.</li>
       <li>«Leonardo Escalona». Biografía en <a href="https://lenguasdearagon.org//pdf/biografias/leonardoescalona.pdf">lenguasdearagon.org</a>.</li>
     </ol>
   </section>
@@ -194,7 +196,7 @@ show((location.hash||"").slice(1)||TEXTS[0].id);
 <footer>
   <div class="col">
     <p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
-    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Contenidos con licencia CC BY-SA.</p>
+    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Textos propios con licencia CC BY-SA. Los fragmentos citados de otras obras pertenecen a sus autores y editores.</p>
   </div>
 </footer>
 </body>

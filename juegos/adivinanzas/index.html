@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Adivinanzas del valle</title>
+<meta name="description" content="Juego: adivina las adivinanzas tradicionales en belsetán del valle de Bielsa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one readable column; a mountain-skyline band opens the page, then sections stacked like stops on the way up the valley. */
+:root{
+  --bg:#e9ece6; --surface:#f7f8f4; --ink:#1f2a24; --muted:#56635a;
+  --line:#c9cfc4; --pine:#2f5d46; --pine-soft:#dbe7df; --ochre:#b5762a; --peak:#c3cbc0;
+  --f-display:"Zilla Slab",Georgia,serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141a17; --surface:#1c2420; --ink:#e6ebe5; --muted:#a3aea5;
+  --line:#33403a; --pine:#7fbf9b; --pine-soft:#22332a; --ochre:#dca35c; --peak:#26302b;
+  color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.6}
+a{color:var(--pine)}
+a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.col{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.hero{padding-block:56px 0;position:relative}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(46px,11vw,92px);line-height:.95;margin:.15em 0 .2em;letter-spacing:-.01em}
+.hero p.lede{font-size:21px;max-width:34ch;margin:0 0 28px;color:var(--ink)}
+.skyline{display:block;width:100%;height:auto;max-height:140px;margin-top:8px}
+main{display:flex;flex-direction:column;gap:56px;padding-block:44px 64px}
+h2{font-family:var(--f-display);font-size:30px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+section p{margin:0 0 14px;max-width:64ch}
+.cite{font-size:14px;color:var(--muted)}
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:8px}
+.trait{border-top:3px solid var(--pine);background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.trait b{font-family:var(--f-display);font-size:22px;color:var(--pine);font-weight:700}
+.trait span{font-size:15px;color:var(--muted);line-height:1.45}
+.res{display:flex;flex-direction:column;gap:12px}
+.card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+a.card:hover{border-color:var(--pine)}
+.card .ico{flex:0 0 44px;height:44px;border-radius:10px;background:var(--pine-soft);display:grid;place-items:center}
+.card .ico svg{width:28px;height:24px}
+.card h3{margin:0;font-family:var(--f-display);font-size:22px}
+.card p{margin:2px 0 0;font-size:16px;color:var(--muted)}
+.card.soon{opacity:.75;border-style:dashed}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--pine-soft);color:var(--pine);margin-left:6px;vertical-align:middle}
+.rules{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.rules li{padding-left:16px;border-left:2px solid var(--ochre);max-width:64ch}
+blockquote{margin:6px 0 16px;padding:4px 0 4px 16px;border-left:3px solid var(--ochre);font-style:italic;max-width:60ch}
+.biblio{padding-left:20px;margin:0;display:grid;gap:8px;font-size:16px}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:15px;color:var(--muted)}
+footer p{margin:0 0 6px}
+</style>
+<style>
+h1{font-size:clamp(38px,8.5vw,70px)}
+.bar{display:flex;align-items:center;gap:14px;flex-wrap:wrap;padding-block:10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
+.bar b{color:var(--ink);font-variant-numeric:tabular-nums}
+.dots{display:flex;gap:5px;flex-wrap:wrap}
+.dots i{width:12px;height:12px;border-radius:50%;border:2px solid var(--line);display:block}
+.dots i.ok{background:var(--pine);border-color:var(--pine)}
+.dots i.no{background:var(--ochre);border-color:var(--ochre);opacity:.6}
+.card2{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.meta{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.verse{font-family:"Zilla Slab",Georgia,serif;font-size:23px;line-height:1.55;border-left:3px solid var(--ochre);padding-left:16px}
+.verse .dim{color:var(--muted)}
+.verse mark{background:var(--pine-soft);color:var(--ink);padding:0 4px;border-radius:4px;font-weight:700}
+.q{font-size:19px;font-weight:600;margin:0}
+.opts{display:grid;gap:8px}
+.opt{font:inherit;text-align:left;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:11px 14px;cursor:pointer}
+.opt:hover:not(:disabled){border-color:var(--pine)}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--pine);box-shadow:inset 0 0 0 1px var(--pine);background:var(--pine-soft)}
+.opt.wrong{border-color:var(--ochre);box-shadow:inset 0 0 0 1px var(--ochre)}
+.opt:focus-visible,.btn:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.fb{border-top:1px dashed var(--line);padding-top:12px;display:flex;flex-direction:column;gap:6px;font-size:16px}
+.fb .v{font-weight:700}
+.fb .x{font-style:italic}
+.fb .n{color:var(--muted)}
+.actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap}
+.btn{font:inherit;font-weight:600;background:var(--pine);color:var(--surface);border:0;border-radius:999px;padding:10px 20px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--pine);border:1px solid var(--pine)}
+.end h2{margin:0}
+</style>
+<style>
+.topnav{background:var(--surface);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px}
+.topnav .brand{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:19px;color:var(--pine);text-decoration:none;margin-right:auto}
+.topnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.topnav a.tab{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
+.topnav a.tab:hover{color:var(--ink)}
+.topnav a.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ochre)}
+.topnav a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Secciones"><div class="in"><a class="brand" href="../../">Belsetán</a><ul><li><a class="tab" href="../../">Inicio</a></li><li><a class="tab" href="../../valle/">El valle</a></li><li><a class="tab" href="../../anchel/">Ánchel</a></li><li><a class="tab" href="../../historia/">Historia</a></li><li><a class="tab" href="../../textos/">Textos</a></li><li><a class="tab" href="../../juegos/" aria-current="page">Juegos</a></li><li><a class="tab" href="../../colabora/">Colabora</a></li></ul></div></nav>
+<header class="hero">
+  <div class="col">
+    <p class="eyebrow">Juego de tradición oral</p>
+    <h1>Adivinanzas del valle</h1>
+    <p class="lede">Once adivinanzas que se decían en el valle de Bielsa. Lee con calma: casi todas esconden objetos de la casa y del campo.</p>
+  </div>
+  <svg class="skyline" viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 140 L0 92 L70 60 L120 84 L190 30 L250 74 L310 48 L370 88 L440 22 L500 70 L560 52 L620 90 L690 40 L750 72 L800 58 L800 140 Z" fill="var(--peak)"/>
+    <path d="M0 140 L0 116 L90 96 L170 112 L260 90 L350 114 L450 94 L540 116 L640 100 L730 118 L800 104 L800 140 Z" fill="var(--pine)" opacity=".35"/>
+  </svg>
+</header>
+
+<main class="col" style="gap:22px">
+  <div class="bar" aria-live="polite"><span>Aciertos: <b id="ok">0</b> de <b id="tot">11</b></span><div class="dots" id="dots"></div></div>
+  <div id="stage"></div>
+  <section><p class="cite">Adivinanzas y soluciones: Lozano y Saludas (2005), anexo II. Reproducido con autorización de Gara d’Edizions, editora de la obra (octubre de 2026). Las respuestas incorrectas son soluciones de otras adivinanzas del mismo libro.</p></section>
+</main>
+<script>
+const A=[{"t": "Cuan ba ta’l monte ba farteta, e cuan torna ta casa biene laseta.", "s": "la bota de vino", "game": true}, {"t": "Las tricas e las tracas, el pixamenut e la empreñatuera.", "s": "el cedazo, la cernedera, la harina y la levadura", "game": true}, {"t": "En un corral de crapas royas, entra la luna e las saca totas.", "s": "el horno del pan, la pala y los panes", "game": true}, {"t": "Una caixeta rodeata de gosez y una chulleta.", "s": "la boca", "game": true}, {"t": "Un ganchet, dos ganchez, tres ganchez; una barreta e un cojonet.", "s": "la romana", "game": true}, {"t": "Cuatro benosas, cuatro terrosas, dos chiracans e un chiramoscas.", "s": "la vaca", "game": true}, {"t": "Un feixet de feixiringuetas, ni son berdes ni son secas.", "s": "agujas de tricotar", "game": true}, {"t": "Patanteta ye preñata, con zien mil patantenetas, ni tiene boca ni cul, ¿per án parirá patanteta?", "s": "la calabaza", "game": true}, {"t": "Alto altero gran caballero, medias royas e sombrero negro.", "s": "el cremallo ‘lar’", "game": true}, {"t": "Sabana blanca, de fil no’n son, tot lo cubre, e a’l rio no.", "s": "la nieve", "game": true}, {"t": "Campo blanco, simién negra, zinco güeis e una rella.", "s": "la escritura", "game": true}];
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+let round=[],i=0,ok=0,res=[];
+function start(){round=shuffle(A.map((_,k)=>k));i=0;ok=0;res=[];show();}
+function dots(){document.getElementById("dots").innerHTML=round.map((_,k)=>`<i class="${res[k]===true?"ok":res[k]===false?"no":""}"></i>`).join("");document.getElementById("ok").textContent=ok;}
+function show(){
+  dots(); if(i>=round.length)return end();
+  const q=round[i],opts=shuffle([q,...shuffle(A.map((_,k)=>k).filter(k=>k!==q)).slice(0,3)]);
+  document.getElementById("stage").innerHTML=`<section class="card2"><div class="meta"><span>Adivinanza ${i+1} de ${round.length}</span><span>Tradición oral del valle</span></div>
+    <div class="verse">${esc(A[q].t)}</div><p class="q">¿Qué es?</p>
+    <div class="opts">${opts.map(k=>`<button class="opt" data-k="${k}">${esc(cap(A[k].s))}</button>`).join("")}</div><div class="fb" id="fb" hidden></div></section>`;
+  document.querySelectorAll(".opt").forEach(b=>b.onclick=()=>pick(+b.dataset.k));
+}
+function pick(k){
+  const q=round[i],good=k===q; if(good)ok++; res[i]=good;
+  document.querySelectorAll(".opt").forEach(b=>{b.disabled=true;const kk=+b.dataset.k;if(kk===q)b.classList.add("right");else if(kk===k)b.classList.add("wrong");});
+  const fb=document.getElementById("fb");fb.hidden=false;
+  fb.innerHTML=`<div class="v">${good?"¡Adivinada!":"Esta vez no."} La solución es: ${esc(A[q].s)}.</div><div class="actions"><button class="btn" id="next">${i+1<round.length?"Siguiente adivinanza":"Ver el resultado"}</button></div>`;
+  dots(); const n=document.getElementById("next"); n.onclick=()=>{i++;show();}; n.focus();
+}
+function end(){
+  document.getElementById("stage").innerHTML=`<section class="card2 end"><h2>${ok} de ${round.length} adivinanzas</h2><p>${ok===round.length?"Las has adivinado todas. En el valle te habrían dado una torta de premio.":"Muchas esconden objetos que ya casi no se ven en las casas. Vuelve a intentarlo."}</p>
+    <div class="actions"><a class="btn ghost" href="../../textos/tradicion-oral/" style="text-decoration:none">Ver refranes y canciones</a><button class="btn" id="again">Jugar otra vez</button></div></section>`;
+  document.getElementById("again").onclick=start;
+}
+start();
+</script>
+<footer>
+  <div class="col">
+    <p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
+    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Textos propios con licencia CC BY-SA. Los fragmentos citados de otras obras pertenecen a sus autores y editores.</p>
+  </div>
+</footer>
+</body>
+</html>

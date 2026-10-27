@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tradición oral del valle de Bielsa</title>
+<meta name="description" content="Adivinanzas, refranes y canciones en belsetán recogidos por Lozano y Saludas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one readable column; a mountain-skyline band opens the page, then sections stacked like stops on the way up the valley. */
+:root{
+  --bg:#e9ece6; --surface:#f7f8f4; --ink:#1f2a24; --muted:#56635a;
+  --line:#c9cfc4; --pine:#2f5d46; --pine-soft:#dbe7df; --ochre:#b5762a; --peak:#c3cbc0;
+  --f-display:"Zilla Slab",Georgia,serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141a17; --surface:#1c2420; --ink:#e6ebe5; --muted:#a3aea5;
+  --line:#33403a; --pine:#7fbf9b; --pine-soft:#22332a; --ochre:#dca35c; --peak:#26302b;
+  color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.6}
+a{color:var(--pine)}
+a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.col{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.hero{padding-block:56px 0;position:relative}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(46px,11vw,92px);line-height:.95;margin:.15em 0 .2em;letter-spacing:-.01em}
+.hero p.lede{font-size:21px;max-width:34ch;margin:0 0 28px;color:var(--ink)}
+.skyline{display:block;width:100%;height:auto;max-height:140px;margin-top:8px}
+main{display:flex;flex-direction:column;gap:56px;padding-block:44px 64px}
+h2{font-family:var(--f-display);font-size:30px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+section p{margin:0 0 14px;max-width:64ch}
+.cite{font-size:14px;color:var(--muted)}
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:8px}
+.trait{border-top:3px solid var(--pine);background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.trait b{font-family:var(--f-display);font-size:22px;color:var(--pine);font-weight:700}
+.trait span{font-size:15px;color:var(--muted);line-height:1.45}
+.res{display:flex;flex-direction:column;gap:12px}
+.card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+a.card:hover{border-color:var(--pine)}
+.card .ico{flex:0 0 44px;height:44px;border-radius:10px;background:var(--pine-soft);display:grid;place-items:center}
+.card .ico svg{width:28px;height:24px}
+.card h3{margin:0;font-family:var(--f-display);font-size:22px}
+.card p{margin:2px 0 0;font-size:16px;color:var(--muted)}
+.card.soon{opacity:.75;border-style:dashed}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--pine-soft);color:var(--pine);margin-left:6px;vertical-align:middle}
+.rules{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.rules li{padding-left:16px;border-left:2px solid var(--ochre);max-width:64ch}
+blockquote{margin:6px 0 16px;padding:4px 0 4px 16px;border-left:3px solid var(--ochre);font-style:italic;max-width:60ch}
+.biblio{padding-left:20px;margin:0;display:grid;gap:8px;font-size:16px}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:15px;color:var(--muted)}
+footer p{margin:0 0 6px}
+</style>
+<style>
+h1{font-size:clamp(40px,9vw,76px)}
+.sub{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+.sub a{font-weight:600;font-size:15px;text-decoration:none;padding:6px 14px;border-radius:999px;border:1px solid var(--line);color:var(--muted)}
+.sub a[aria-current="page"]{border-color:var(--pine);color:var(--ink);background:var(--pine-soft)}
+.riddles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.rd{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.rd p{margin:0;font-family:"Zilla Slab",Georgia,serif;font-size:19px;line-height:1.45}
+details summary{cursor:pointer;color:var(--pine);font-weight:600;font-size:15px}
+details summary:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+details .sol{margin-top:6px;font-size:16px}
+.sayings{display:grid;gap:12px}
+.say{border-left:3px solid var(--ochre);padding:4px 0 4px 16px}
+.say .b{font-family:"Zilla Slab",Georgia,serif;font-size:19px;line-height:1.45;margin:0 0 4px}
+.say .tr{font-size:16px;margin:2px 0}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:1px 7px;border-radius:4px;margin-right:6px;vertical-align:1px}
+.tag.at{background:var(--pine-soft);color:var(--pine);border:1px solid var(--pine)}
+.tag.re{color:var(--ochre);border:1px solid var(--ochre)}
+.say .n{color:var(--muted);font-size:15px;margin:2px 0}
+.songs{columns:2 300px;column-gap:28px}
+.song{break-inside:avoid;margin:0 0 22px;font-family:"Zilla Slab",Georgia,serif;font-size:18px;line-height:1.5}
+.song h3{font-size:20px;margin:0 0 4px}
+</style>
+<style>
+.topnav{background:var(--surface);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px}
+.topnav .brand{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:19px;color:var(--pine);text-decoration:none;margin-right:auto}
+.topnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.topnav a.tab{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
+.topnav a.tab:hover{color:var(--ink)}
+.topnav a.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ochre)}
+.topnav a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Secciones"><div class="in"><a class="brand" href="../../">Belsetán</a><ul><li><a class="tab" href="../../">Inicio</a></li><li><a class="tab" href="../../valle/">El valle</a></li><li><a class="tab" href="../../anchel/">Ánchel</a></li><li><a class="tab" href="../../historia/">Historia</a></li><li><a class="tab" href="../../textos/" aria-current="page">Textos</a></li><li><a class="tab" href="../../juegos/">Juegos</a></li><li><a class="tab" href="../../colabora/">Colabora</a></li></ul></div></nav>
+<header class="hero">
+  <div class="col">
+    <p class="eyebrow">Adivinanzas, refranes y canciones</p>
+    <h1>Tradición oral</h1>
+    <p class="lede">Lo que se decía y se cantaba en el valle de Bielsa, tal como lo recogieron Chabier Lozano y Ángel Saludas.</p>
+  </div>
+  <svg class="skyline" viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 140 L0 92 L70 60 L120 84 L190 30 L250 74 L310 48 L370 88 L440 22 L500 70 L560 52 L620 90 L690 40 L750 72 L800 58 L800 140 Z" fill="var(--peak)"/>
+    <path d="M0 140 L0 116 L90 96 L170 112 L260 90 L350 114 L450 94 L540 116 L640 100 L730 118 L800 104 L800 140 Z" fill="var(--pine)" opacity=".35"/>
+  </svg>
+</header>
+
+<main class="col">
+  <nav class="sub" aria-label="Tipos de texto"><a href="../">Cartas de Escalona</a><a href="../tradicion-oral/" aria-current="page">Tradición oral</a></nav>
+
+  <section id="origen">
+    <h2>De dónde vienen</h2>
+    <p>Estos textos aparecen en el anexo II de <i>Aspectos morfosintácticos del belsetán</i>. En los agradecimientos, los autores cuentan que Isabel Irigaray, concejala de cultura de Bielsa, les facilitó todo el material que se había recogido sobre la cultura belsetana, y que de ahí sacaron mucha tradición oral. Lo escriben en belsetán:</p>
+    <blockquote>Emos a zitar la colaboración de Isabel Irigaray, conzellera de cultura, qui nos ha fazilitato tot el material que s’arreplegó sobre cultura belsetana, d’an que emos sacato buena cosa de tradizión oral en belsetán.</blockquote>
+    <p class="cite">Reproducido con autorización de Gara d’Edizions, editora de la obra (octubre de 2026).</p>
+  </section>
+
+  <section id="adivinanzas">
+    <h2>Adivinanzas</h2>
+    <p>Las soluciones son las que da el libro. ¿Las aciertas sin mirar? También puedes <a href="../../juegos/adivinanzas/">jugar a adivinarlas</a>.</p>
+    <div class="riddles"><div class="rd"><p>Cuan ba ta’l monte ba farteta, e cuan torna ta casa biene laseta.</p><details><summary>Ver la solución</summary><div class="sol">La bota de vino</div></details></div><div class="rd"><p>Las tricas e las tracas, el pixamenut e la empreñatuera.</p><details><summary>Ver la solución</summary><div class="sol">El cedazo, la cernedera, la harina y la levadura</div></details></div><div class="rd"><p>En un corral de crapas royas, entra la luna e las saca totas.</p><details><summary>Ver la solución</summary><div class="sol">El horno del pan, la pala y los panes</div></details></div><div class="rd"><p>Una caixeta rodeata de gosez y una chulleta.</p><details><summary>Ver la solución</summary><div class="sol">La boca</div></details></div><div class="rd"><p>Un ganchet, dos ganchez, tres ganchez; una barreta e un cojonet.</p><details><summary>Ver la solución</summary><div class="sol">La romana</div></details></div><div class="rd"><p>Cuatro benosas, cuatro terrosas, dos chiracans e un chiramoscas.</p><details><summary>Ver la solución</summary><div class="sol">La vaca</div></details></div><div class="rd"><p>Un feixet de feixiringuetas, ni son berdes ni son secas.</p><details><summary>Ver la solución</summary><div class="sol">Agujas de tricotar</div></details></div><div class="rd"><p>Patanteta ye preñata, con zien mil patantenetas, ni tiene boca ni cul, ¿per án parirá patanteta?</p><details><summary>Ver la solución</summary><div class="sol">La calabaza</div></details></div><div class="rd"><p>Alto altero gran caballero, medias royas e sombrero negro.</p><details><summary>Ver la solución</summary><div class="sol">El cremallo ‘lar’</div></details></div><div class="rd"><p>Sabana blanca, de fil no’n son, tot lo cubre, e a’l rio no.</p><details><summary>Ver la solución</summary><div class="sol">La nieve</div></details></div><div class="rd"><p>Campo blanco, simién negra, zinco güeis e una rella.</p><details><summary>Ver la solución</summary><div class="sol">La escritura</div></details></div><div class="rd"><p>Fe-te t’allá, que t’allá me faré, un palmo que tiengo, te la meteré.</p><details><summary>Ver la solución</summary><div class="sol">El cerrojo</div></details></div><div class="rd"><p>Ni ye butifarra, ni ye longaniza, toz es ombres meten la man cuan pixan.</p><details><summary>Ver la solución</summary><div class="sol">El porrón</div></details></div></div>
+  </section>
+
+  <section id="refranes">
+    <h2>Refranes y dichos</h2>
+    <p>El libro recoge estos refranes sin traducirlos. Solo uno tiene su traducción documentada en otra parte de la obra; lo marcamos como <span class="tag at">Atestado</span>. En los más claros proponemos una <span class="tag re">Lectura aproximada</span>: es nuestra, está pendiente de que la revise un hablante y no debe tomarse como definitiva. Los demás quedan sin traducir.</p>
+    <div class="sayings"><div class="say"><p class="b">Pa San Antón de chiner,<br>a mitá paller,<br>a mitá graner,<br>e la muller que ye muller<br>el latón enter.</p><p class="tr"><span class="tag re">Lectura aproximada</span>Por San Antón, en enero, la mitad del pajar, la mitad del granero, y la mujer que es buena mujer, el cerdo entero.</p></div><div class="say"><p class="b">Pa San Antón de chiner anda una ora més el trachiner.</p><p class="n">Sin traducción documentada. <a href="../../colabora/">¿Sabes qué significa?</a></p></div><div class="say"><p class="b">Pa San Antón Carnestutas son.</p><p class="tr"><span class="tag re">Lectura aproximada</span>Por San Antón llegan las carnestolendas.</p></div><div class="say"><p class="b">Se en Semana Santa no canta el cucut<br>u ye mort u ye perdut.</p><p class="tr"><span class="tag at">Atestado</span>‘si para Semana Santa no canta el cuclillo, o está muerto o está perdido’</p></div><div class="say"><p class="b">Febrer febrer, barbas de caballer; matores a tu pai en·n’o leñer e a tu mai en·n’o graner.</p><p class="tr"><span class="tag re">Lectura aproximada</span>Febrero, febrero, barbas de caballero: mataste a tu padre en el leñero y a tu madre en el granero.</p><p class="n">Matores es un pretérito en -ores, una de las terminaciones que solo se han documentado en el valle de Bielsa.</p></div><div class="say"><p class="b">Mayo, mayo, mes d’el diablo, brenda curta e día largo.</p><p class="n">Sin traducción documentada. <a href="../../colabora/">¿Sabes qué significa?</a></p></div><div class="say"><p class="b">Tiengo fambre. Chira-te el cul e come carne.</p><p class="n">Sin traducción documentada. <a href="../../colabora/">¿Sabes qué significa?</a></p></div><div class="say"><p class="b">De lentilla a lentilla que se pasea la mai e la filla.</p><p class="n">Sin traducción documentada. <a href="../../colabora/">¿Sabes qué significa?</a></p></div><div class="say"><p class="b">Mamá, papá. —¿Qué? —La cuba se’n ba. —¿Per qué? —Perque plena en ye.</p><p class="tr"><span class="tag re">Lectura aproximada</span>—Mamá, papá. —¿Qué? —La cuba se va. —¿Por qué? —Porque está llena.</p></div><div class="say"><p class="b">Ixordiqueta, ixordiqueta,<br>fui, fui que te pilla la malbeta.<br>Malbeta, malbeta,<br>cura-me la ixordiqueta.</p><p class="n">Sin traducción documentada. <a href="../../colabora/">¿Sabes qué significa?</a></p></div><div class="say"><p class="b">No digas corder escapato que San José y la Virgen no ayan pasato.</p><p class="tr"><span class="tag re">Lectura aproximada</span>No des el cordero por salvado hasta que hayan pasado San José y la Virgen.</p></div><div class="say"><p class="b">No digas corderata, corderata dica que San José e la Virgen de Marzo no sía pasata.</p><p class="n">Sin traducción documentada. <a href="../../colabora/">¿Sabes qué significa?</a></p></div><div class="say"><p class="b">Qui festeja una casera e conoix un nido d’alica, no pasará fambre en tota la primabera.</p><p class="n">Sin traducción documentada. <a href="../../colabora/">¿Sabes qué significa?</a></p></div><div class="say"><p class="b">La leña en cruz ni fa fuego ni fa luz.</p><p class="tr"><span class="tag re">Lectura aproximada</span>La leña en cruz ni hace fuego ni da luz.</p></div><div class="say"><p class="b">San Bizente el barbaro, u trenca el chel u el deixa doblato.</p><p class="tr"><span class="tag re">Lectura aproximada</span>San Vicente el bárbaro, o rompe el hielo o lo deja doblado.</p><p class="n">Chel ‘hielo’ está documentado en la morfología: ¿quiers chel? ‘¿quieres hielo?’.</p></div></div>
+  </section>
+
+  <section id="canciones">
+    <h2>Canciones</h2>
+    <p>Canciones de baile, de ronda, de burla entre pueblos y una oración infantil. Las reproducimos sin traducción y tal como aparecen en el libro.</p>
+    <div class="songs"><div class="song">Ziba zaba cul de craba<br>Ziba zabón cul de crabón.</div><div class="song">A la media buelta que así se da<br>Si no tos apretaz no tos toco más.</div><div class="song">No te cases en Espierba,<br>Ni te cases en Parzán,<br>Busca-te-las d’Ixabierre<br>Que totas son como cal.</div><div class="song">Se te casas ta Parzán<br>Ya te puez amanar cuerdas<br>Que se el domingo te casas<br>El lunes irás per leña.</div><div class="song">Trai-me las camaligas<br>Se me las quiers tornar<br>Se no me’n boi ta la borda<br>A fartar-me de plorar.</div><div class="song">Bin binet<br>De las berdes matas<br>Tú me pierdes<br>Tú me matas<br>Tú me fas ir a cuatro patas<br>Tú yes negro<br>Yo soi blanco<br>E en la tripa te me zampo.</div><div class="song">Picolín, picolín<br>Me lebanté de buen maitín<br>Me calzé, me bistié<br>Me’n fue per el buen camín<br>Jesucristo yera el pai<br>Santa María la mai<br>Es angeles es chirmans<br>Me pilloren de las mans<br>Me lleboren ta Belén<br>De Belén ta un calbario<br>De un calbario ta una fuen<br>Que allí yera San Bizén<br>Con tres cruzes en la fren<br>Pa que’l diablo no nos tiente<br>Ni de día ni de nuet<br>Asta la ora de morir Amén.</div><div class="song">De Chisagüés soi baixato<br>Tiengo muto que contar<br>M’han dato carne de burro<br>E las patas sin pelar.</div><div class="song">Ya se t’ha muerto el latón<br>E no m’has dato tortetas<br>Tampoco yo te daré<br>D’el que tiengo en la bragueta.</div><div class="song">Bacoters de Chisagüés<br>Mata güellas e corders<br>E no les deixan mica<br>a las mullers.</div><div class="song"><h3>Romanze de Marichuana</h3>De los altos Pirineos<br>Me’n baixé ta tierra plana<br>Per biyer un amor que tiengo<br>Que se clama Marichuana.<br>Ye una moza mui rolliza,<br>Güellos negros, nariz chata,<br>Tiene més fuerza que un güei<br>E més ancas que una baca.<br>En las pochas d’el gamboi<br>T’he baixato unas manzanas<br>Pa que biyeses l’amor<br>Que te tiengo Marichuana.<br>Tiengo una sartén sin coda<br>E una olla desansata<br>Tamién me faré<br>es tenedors e las cucharas<br>E una rueca con un fuso<br>Pa filar en las beilatas.<br>Ya nos claman ta la iglesia<br>Nos dizión cuatro palabras<br>Me preguntó señor rector<br>Se querebe a Marichuana,<br>Que la boi seguindo a’l año<br>Como el buco a la crapa.<br>Ya nos claman a zenar<br>E nos dan cols con enjundia de crapa<br>Que quieras o no querebas<br>En es diens s’acorrucaba.<br>Dimpués de fartos de bailar<br>Nos ne fuemos ta la cama<br>Yo le dizié a Marichuana<br>Que m’estirás las calzas<br>Quereses o no’n quereses<br>Tot se tornaban trazas.</div></div>
+  </section>
+
+  <section id="fuentes">
+    <h2>Fuente</h2>
+    <ol class="biblio">
+      <li>Lozano, Chabier y Saludas, Ángel (2005): <i>Aspectos morfosintácticos del belsetán (aragonés del valle de Bielsa)</i>. Zaragoza: Gara d’Edizions. Anexo II, «Literatura de tradición oral», y agradecimientos. Reproducido con autorización de Gara d’Edizions, editora de la obra (octubre de 2026).</li>
+    </ol>
+  </section>
+</main>
+<footer>
+  <div class="col">
+    <p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
+    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Textos propios con licencia CC BY-SA. Los fragmentos citados de otras obras pertenecen a sus autores y editores.</p>
+  </div>
+</footer>
+</body>
+</html>
