@@ -66,6 +66,15 @@ h1{font-size:clamp(40px,9vw,76px)}
 .dl a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
 .state{font-size:14px;border-left:3px solid var(--ochre);padding-left:12px;color:var(--muted)}
 .soon{opacity:.75;border-style:dashed}
+.tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 4px}
+.tabs button{font:inherit;text-align:left;cursor:pointer;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:14px 16px;display:grid;gap:2px}
+.tabs button b{font-family:"Zilla Slab",Georgia,serif;font-size:22px}
+.tabs button span{font-size:14px;color:var(--muted)}
+.tabs button[aria-selected="true"]{border-color:var(--pine);box-shadow:inset 0 0 0 1px var(--pine)}
+.tabs button[aria-selected="true"] b{color:var(--pine)}
+.tabs button:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+[role=tabpanel][hidden]{display:none}
+@media(max-width:520px){.tabs button b{font-size:19px}}
 </style>
 <style>
 .topnav{background:var(--surface);border-bottom:1px solid var(--line)}
@@ -93,6 +102,74 @@ h1{font-size:clamp(40px,9vw,76px)}
 </header>
 
 <main class="col">
+  <section id="elige">
+    <h2>Elige tu nivel</h2>
+    <div class="tabs" role="tablist" aria-label="Nivel">
+      <button role="tab" id="t-pasos" aria-controls="primeros-pasos" aria-selected="true"><b>Primeros pasos</b><span>De 8 a 11 años · fichas con dibujos</span></button>
+      <button role="tab" id="t-avanzamos" aria-controls="avanzamos" aria-selected="false" tabindex="-1"><b>Avanzamos</b><span>A partir de 12 años · unidades con textos</span></button>
+    </div>
+  </section>
+
+  <div role="tabpanel" id="primeros-pasos" aria-labelledby="t-pasos">
+  <section>
+    <h2>Primeros pasos</h2>
+    <p>Para los más pequeños, de 8 a 11 años: fichas con dibujos para colorear, unir y adivinar, guiadas por Colaset, el personaje de las cartas de Escalona. La última página es para la persona adulta, con las soluciones y la fuente de cada palabra; se puede quitar al imprimir.</p>
+    <p>Muchas fichas tratan el mismo tema que una unidad de «Avanzamos», para que hermanos o grupos de distintas edades puedan trabajar a la vez.</p>
+    <div style="display:grid;gap:16px">
+    <div class="unit" id="ficha-1">
+      <h3>Ficha 1. ¡Hola, valle de Bielsa!</h3>
+      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span><span>Va con la unidad 1 de «Avanzamos»</span></div>
+      <p style="margin:6px 0 0">Colorear el mapa del valle, aprender las primeras palabras (<i>nieu</i>, <i>augua</i>, <i>pin</i>…) y dibujar la Billa.</p>
+      <div class="dl"><a class="main" href="primaria/ficha-1-hola-valle-de-bielsa.pdf">Ficha con soluciones (PDF)</a></div>
+    </div>
+    <div class="unit" id="ficha-2">
+      <h3>Ficha 2. Los animales del valle</h3>
+      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span></div>
+      <p style="margin:6px 0 0">Nueve animales en belsetán, machos y hembras (<i>lupo</i> / <i>lupa</i>, <i>onso</i> / <i>onsa</i>) y una sopa de letras.</p>
+      <div class="dl"><a class="main" href="primaria/ficha-2-los-animales-del-valle.pdf">Ficha con soluciones (PDF)</a></div>
+    </div>
+    <div class="unit" id="ficha-3">
+      <h3>Ficha 3. Contamos y pintamos</h3>
+      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span></div>
+      <p style="margin:6px 0 0">Los números del 1 al 10 contando güellas y cuatro colores para pintar.</p>
+      <div class="dl"><a class="main" href="primaria/ficha-3-contamos-y-pintamos.pdf">Ficha con soluciones (PDF)</a></div>
+    </div>
+    <div class="unit" id="ficha-4">
+      <h3>Ficha 4. Adivinanzas para pequeños</h3>
+      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span><span>Va con la unidad 3 de «Avanzamos»</span></div>
+      <p style="margin:6px 0 0">Cuatro adivinanzas de la tradición oral del valle, con dibujos para elegir la solución.</p>
+      <div class="dl"><a class="main" href="primaria/ficha-4-adivinanzas-para-pequenos.pdf">Ficha con soluciones (PDF)</a></div>
+    </div>
+    <div class="unit" id="ficha-5">
+      <h3>Ficha 5. ¡Fiesta en el pueblo!</h3>
+      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span><span>Va con la unidad 4 de «Avanzamos»</span></div>
+      <p style="margin:6px 0 0">La familia en belsetán (<i>güelo</i>, <i>güela</i>, <i>chirmana</i>, <i>nin·no</i>), el punto volado y cómo se dice <i>mucho</i>, <i>un poco</i> y <i>nada</i>.</p>
+      <div class="dl"><a class="main" href="primaria/ficha-5-fiesta-en-el-pueblo.pdf">Ficha con soluciones (PDF)</a></div>
+    </div>
+    <div class="unit" id="ficha-6">
+      <h3>Ficha 6. Ánchel, pastor de palabras</h3>
+      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span><span>Va con la unidad 5 de «Avanzamos»</span></div>
+      <p style="margin:6px 0 0">Ordenar palabras como en un diccionario, del plural al singular, parejas con sorpresa y un diccionario de bolsillo propio.</p>
+      <div class="dl"><a class="main" href="primaria/ficha-6-anchel-pastor-de-palabras.pdf">Ficha con soluciones (PDF)</a></div>
+    </div>
+    <div class="unit" id="ficha-7">
+      <h3>Ficha 7. Los rebaños se van de viaje</h3>
+      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span><span>Va con la unidad 6 de «Avanzamos»</span></div>
+      <p style="margin:6px 0 0">Las cuatro estaciones (<i>agüerro</i> es el otoño), un laberinto hasta la tierra baixa y los machos y hembras del rebaño.</p>
+      <div class="dl"><a class="main" href="primaria/ficha-7-los-rebanos-se-van-de-viaje.pdf">Ficha con soluciones (PDF)</a></div>
+    </div>
+    <div class="unit" id="ficha-8">
+      <h3>Ficha 8. A la mesa</h3>
+      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span><span>Va con la unidad 7 de «Avanzamos»</span></div>
+      <p style="margin:6px 0 0">Comida del valle (<i>let</i>, <i>trunfas</i>, <i>millazos</i>…), poner la mesa y la receta de la familia.</p>
+      <div class="dl"><a class="main" href="primaria/ficha-8-a-la-mesa.pdf">Ficha con soluciones (PDF)</a></div>
+    </div>
+    </div>
+    <p class="state">Versión de prueba, pendiente de que la revise un hablante del valle.</p>
+  </section>
+  </div>
+
+  <div role="tabpanel" id="avanzamos" aria-labelledby="t-avanzamos" hidden>
   <section id="como">
     <h2>Cómo son las unidades</h2>
     <p>Cada unidad parte de un texto auténtico en belsetán y propone actividades de comprensión, de observación de la lengua, de comparación con otras lenguas y de reflexión sobre la diversidad lingüística. Todas las formas belsetanas están documentadas y llevan su fuente.</p>
@@ -161,38 +238,24 @@ h1{font-size:clamp(40px,9vw,76px)}
     </div>
     </div>
   </section>
+  </div>
 
-  <section id="primaria">
-    <h2>Fichas para Primaria</h2>
-    <p>Para los más pequeños, de 8 a 11 años: fichas con dibujos para colorear, unir y adivinar, guiadas por Colaset, el personaje de las cartas de Escalona. La última página es para la persona adulta, con las soluciones y la fuente de cada palabra; se puede quitar al imprimir.</p>
-    <div style="display:grid;gap:16px">
-    <div class="unit">
-      <h3>Ficha 1. ¡Hola, valle de Bielsa!</h3>
-      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span></div>
-      <p style="margin:6px 0 0">Colorear el mapa del valle, aprender las primeras palabras (<i>nieu</i>, <i>augua</i>, <i>pin</i>…) y dibujar la Billa.</p>
-      <div class="dl"><a class="main" href="primaria/ficha-1-hola-valle-de-bielsa.pdf">Ficha con soluciones (PDF)</a></div>
-    </div>
-    <div class="unit">
-      <h3>Ficha 2. Los animales del valle</h3>
-      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span></div>
-      <p style="margin:6px 0 0">Nueve animales en belsetán, machos y hembras (<i>lupo</i> / <i>lupa</i>, <i>onso</i> / <i>onsa</i>) y una sopa de letras.</p>
-      <div class="dl"><a class="main" href="primaria/ficha-2-los-animales-del-valle.pdf">Ficha con soluciones (PDF)</a></div>
-    </div>
-    <div class="unit">
-      <h3>Ficha 3. Contamos y pintamos</h3>
-      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span></div>
-      <p style="margin:6px 0 0">Los números del 1 al 10 contando güellas y cuatro colores para pintar.</p>
-      <div class="dl"><a class="main" href="primaria/ficha-3-contamos-y-pintamos.pdf">Ficha con soluciones (PDF)</a></div>
-    </div>
-    <div class="unit">
-      <h3>Ficha 4. Adivinanzas para pequeños</h3>
-      <div class="meta"><span>1 sesión</span><span>De 8 a 11 años</span></div>
-      <p style="margin:6px 0 0">Cuatro adivinanzas de la tradición oral del valle, con dibujos para elegir la solución.</p>
-      <div class="dl"><a class="main" href="primaria/ficha-4-adivinanzas-para-pequenos.pdf">Ficha con soluciones (PDF)</a></div>
-    </div>
-    </div>
-    <p class="state">Versión de prueba, pendiente de que la revise un hablante del valle.</p>
-  </section>
+<script>
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
+  function show(t,focus){
+    tabs.forEach(function(x){var on=x===t;x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on});
+    if(focus)t.focus();
+    try{history.replaceState(null,'','#'+t.getAttribute('aria-controls'))}catch(e){}
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){show(t)});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(tabs[(i+1)%2],true)}});
+  });
+  var h=location.hash.slice(1),el=h&&document.getElementById(h);
+  if(el){var p=el.closest('[role=tabpanel]')||(el.getAttribute('role')==='tabpanel'?el:null);if(p){tabs.forEach(function(t){if(t.getAttribute('aria-controls')===p.id)show(t)});if(el!==p)el.scrollIntoView()}}
+})();
+</script>
 
   <section id="licencia">
     <p class="cite">Unidades elaboradas por Sandra Fortanet (@sanforbel). Puedes imprimirlas, compartirlas y adaptarlas citando la autoría: los textos propios tienen licencia CC BY-SA. Los fragmentos citados de otras obras pertenecen a sus autores y editores; los de la morfología de Lozano y Saludas se reproducen con autorización de Gara d’Edizions.</p>
