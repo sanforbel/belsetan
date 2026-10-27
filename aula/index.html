@@ -66,7 +66,10 @@ h1{font-size:clamp(40px,9vw,76px)}
 .dl a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
 .state{font-size:14px;border-left:3px solid var(--ochre);padding-left:12px;color:var(--muted)}
 .soon{opacity:.75;border-style:dashed}
-.tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:8px 0 4px}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:8px 0 4px}
+.deck{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:20px;align-items:center}
+.deck img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block}
+@media(max-width:700px){.deck{grid-template-columns:1fr}}
 .tabs button{font:inherit;text-align:left;cursor:pointer;border:2px solid var(--line);background:var(--surface);color:var(--ink);border-radius:14px;padding:14px 16px;display:grid;gap:2px}
 .tabs button b{font-family:"Zilla Slab",Georgia,serif;font-size:22px}
 .tabs button span{font-size:14px;color:var(--muted)}
@@ -74,7 +77,7 @@ h1{font-size:clamp(40px,9vw,76px)}
 .tabs button[aria-selected="true"] b{color:var(--pine)}
 .tabs button:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
 [role=tabpanel][hidden]{display:none}
-@media(max-width:520px){.tabs button b{font-size:19px}}
+@media(max-width:620px){.tabs{grid-template-columns:1fr}.tabs button b{font-size:19px}}
 </style>
 <style>
 .topnav{background:var(--surface);border-bottom:1px solid var(--line)}
@@ -103,10 +106,11 @@ h1{font-size:clamp(40px,9vw,76px)}
 
 <main class="col">
   <section id="elige">
-    <h2>Elige tu nivel</h2>
-    <div class="tabs" role="tablist" aria-label="Nivel">
+    <h2>¿Qué buscas?</h2>
+    <div class="tabs" role="tablist" aria-label="Tipo de material">
       <button role="tab" id="t-pasos" aria-controls="primeros-pasos" aria-selected="true"><b>Primeros pasos</b><span>De 8 a 11 años · fichas con dibujos</span></button>
       <button role="tab" id="t-avanzamos" aria-controls="avanzamos" aria-selected="false" tabindex="-1"><b>Avanzamos</b><span>A partir de 12 años · unidades con textos</span></button>
+      <button role="tab" id="t-gramatica" aria-controls="gramatica" aria-selected="false" tabindex="-1"><b>Gramática</b><span>Presentaciones · para docentes y adultos</span></button>
     </div>
   </section>
 
@@ -266,6 +270,25 @@ h1{font-size:clamp(40px,9vw,76px)}
   </section>
   </div>
 
+  <div role="tabpanel" id="gramatica" aria-labelledby="t-gramatica" hidden>
+  <section>
+    <h2>Gramática</h2>
+    <p>Presentaciones que resumen la morfología del belsetán a partir del estudio de Chabier Lozano y Ánchel Saludas. Están pensadas para docentes, estudiantes de Filología y cualquier persona adulta que quiera entender cómo funciona la lengua por dentro. Iremos añadiendo una por cada parte de la gramática.</p>
+    <div class="unit" id="presentacion-sustantivo">
+      <div class="deck">
+        <img src="gramatica/morfosintaxis-sustantivo-portada.png" alt="Portada de la presentación «Arquitectura morfosintáctica del sustantivo belsetán»" width="688" height="384" loading="lazy">
+        <div style="display:grid;gap:12px">
+          <h3>El sustantivo</h3>
+          <div class="meta"><span>15 diapositivas</span><span>PDF, 3 MB</span></div>
+          <p style="margin:0">Funciones y clases de sustantivos, el género (heterónimos, comunes y variables; aumentativos y colectivos), el número y sus alomorfos (<i>peixes</i>, <i>nasos</i>, <i>parez</i>, <i>paixariquez</i>) y el artículo con todas sus formas y contracciones (<i>n’o prato</i>, <i>en·n’a ilesia</i>, <i>pa’s paixariquez</i>).</p>
+          <div class="dl"><a class="main" href="gramatica/morfosintaxis-sustantivo.pdf">Ver la presentación (PDF)</a></div>
+        </div>
+      </div>
+      <p class="state">Elaborada con ayuda de IA (NotebookLM) a partir de Lozano y Saludas (2005) y revisada forma por forma con la obra; reproducida con autorización de Gara d’Edizions. Pendiente de la revisión de los autores.</p>
+    </div>
+  </section>
+  </div>
+
 <script>
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('[role=tab]'));
@@ -276,7 +299,7 @@ h1{font-size:clamp(40px,9vw,76px)}
   }
   tabs.forEach(function(t,i){
     t.addEventListener('click',function(){show(t)});
-    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(tabs[(i+1)%2],true)}});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();show(tabs[(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length],true)}});
   });
   function go(){var h=location.hash.slice(1),el=h&&document.getElementById(h);
   if(el){var p=el.closest('[role=tabpanel]');if(p){tabs.forEach(function(t){if(t.getAttribute('aria-controls')===p.id)show(t)});if(el!==p)el.scrollIntoView()}}}
