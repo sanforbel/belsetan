@@ -1,4 +1,4 @@
-# belsetan
+# Belsetán
 
 Aplicacio web publicada amb GitHub Pages.
 
