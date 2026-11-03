@@ -145,7 +145,11 @@ function parse(q){const n=N(q);let m;
  return{type:'any',t:n};}
 function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));}
 function card(e){return '<div class="ent"><span class="bel">'+esc(e.f)+'</span> · '+esc(e.g)+'<span class="tag">ATESTADO</span>'+(e.ex?'<div><i>'+esc(e.ex)+'</i> ‘'+esc(e.eg)+'’</div>':'')+(e.n?'<div class="src">'+esc(e.n)+'</div>':'')+'<div class="src">Fuente: '+esc(e.s)+'</div></div>';}
-function answer(q){const p=parse(q);if(!p.t)return 'Escríbeme una palabra.';
+function answer(q){const nq=N(q);
+ if(/^(hola|buenas|buenos dias|buenas tardes|buenas noches|bon dia|bona vesprada|hey|ey|saludos|que tal|como estas)\b/.test(nq)&&nq.split(' ').length<=4)return '¡Hola! Soy el aprendiz del pastor. Pregúntame, por ejemplo, «¿Cómo se dice <i>oveja</i>?» o «¿Qué significa <i>chizardo</i>?». Te respondo solo con palabras documentadas y te digo siempre de dónde salen.';
+ if(/^(gracias|muchas gracias|moltes gracies|gracies)\b/.test(nq))return '¡De nada! Si quieres, pregúntame otra palabra. Y recuerda: el belsetán de verdad se aprende escuchando a sus hablantes.';
+ if(/(quien eres|que eres|que haces|como funcionas|ayuda|que puedo preguntar)/.test(nq))return 'Soy el aprendiz del pastor: no hablo belsetán, solo busco en las palabras documentadas que publica esta web. Puedes preguntarme cómo se dice una palabra (por ejemplo, «¿Cómo se dice <i>invierno</i>?») o qué significa una palabra belsetana («¿Qué significa <i>agüerro</i>?»). Si algo no está documentado, te lo diré.';
+ const p=parse(q);if(!p.t)return 'Escríbeme una palabra.';
  const words=clean(p.t).split(' ').filter(Boolean);
  let r=p.type==='es'?byGloss(p.t):p.type==='bel'?byForm(p.t):byForm(p.t).concat(byGloss(p.t));
  r=[...new Set(r)].slice(0,6);
