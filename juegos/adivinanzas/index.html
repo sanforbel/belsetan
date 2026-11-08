@@ -1,12 +1,13 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
 <title>Adivinanzas del valle</title>
-<meta name="description" content="Juego: adivina las adivinanzas tradicionales en belsetán del valle de Bielsa.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<meta content="Juego: adivina las adivinanzas tradicionales en belsetán del valle de Bielsa." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet"/>
 <style>
 /* Layout: one readable column; a mountain-skyline band opens the page, then sections stacked like stops on the way up the valley. */
 :root{
@@ -96,26 +97,25 @@ h1{font-size:clamp(38px,8.5vw,70px)}
 </style>
 </head>
 <body>
-<nav class="topnav" aria-label="Secciones"><div class="in"><a class="brand" href="../../">Belsetán</a><ul><li><a class="tab" href="../../">Inicio</a></li><li><a class="tab" href="../../valle/">El valle</a></li><li><a class="tab" href="../../anchel/">Ánchel</a></li><li><a class="tab" href="../../historia/">Historia</a></li><li><a class="tab" href="../../textos/">Textos</a></li><li><a class="tab" href="../../juegos/" aria-current="page">Juegos</a></li><li><a class="tab" href="../../aula/">Aula</a></li><li><a class="tab" href="../../pregunta/">¿Tienes dudas?</a></li><li><a class="tab" href="../../colabora/">Colabora</a></li></ul></div></nav>
+<nav aria-label="Secciones" class="topnav"><div class="in"><a class="brand" href="../../">Belsetán</a><ul><li><a class="tab" href="../../">Inicio</a></li><li><a class="tab" href="../../valle/">El valle</a></li><li><a class="tab" href="../../anchel/">Ánchel</a></li><li><a class="tab" href="../../historia/">Historia</a></li><li><a class="tab" href="../../textos/">Textos</a></li><li><a aria-current="page" class="tab" href="../../juegos/">Juegos</a></li><li><a class="tab" href="../../aula/">Aula</a></li><li><a class="tab" href="../../pregunta/">¿Tienes dudas?</a></li><li><a class="tab" href="../../colabora/">Colabora</a></li></ul></div></nav>
 <header class="hero">
-  <div class="col">
-    <p class="eyebrow">Juego de tradición oral</p>
-    <h1>Adivinanzas del valle</h1>
-    <p class="lede">Once adivinanzas que se decían en el valle de Bielsa. Lee con calma: casi todas esconden objetos de la casa y del campo.</p>
-  </div>
-  <svg class="skyline" viewBox="0 0 800 140" preserveAspectRatio="none" aria-hidden="true">
-    <path d="M0 140 L0 92 L70 60 L120 84 L190 30 L250 74 L310 48 L370 88 L440 22 L500 70 L560 52 L620 90 L690 40 L750 72 L800 58 L800 140 Z" fill="var(--peak)"/>
-    <path d="M0 140 L0 116 L90 96 L170 112 L260 90 L350 114 L450 94 L540 116 L640 100 L730 118 L800 104 L800 140 Z" fill="var(--pine)" opacity=".35"/>
-  </svg>
+<div class="col">
+<p class="eyebrow">Juego de tradición oral</p>
+<h1>Adivinanzas del valle</h1>
+<p class="lede">Once adivinanzas que se decían en el valle de Bielsa. Lee con calma: casi todas esconden objetos de la casa y del campo.</p>
+</div>
+<svg aria-hidden="true" class="skyline" preserveaspectratio="none" viewbox="0 0 800 140">
+<path d="M0 140 L0 92 L70 60 L120 84 L190 30 L250 74 L310 48 L370 88 L440 22 L500 70 L560 52 L620 90 L690 40 L750 72 L800 58 L800 140 Z" fill="var(--peak)"></path>
+<path d="M0 140 L0 116 L90 96 L170 112 L260 90 L350 114 L450 94 L540 116 L640 100 L730 118 L800 104 L800 140 Z" fill="var(--pine)" opacity=".35"></path>
+</svg>
 </header>
-
 <main class="col" style="gap:22px">
-  <div class="bar" aria-live="polite"><span>Aciertos: <b id="ok">0</b> de <b id="tot">11</b></span><div class="dots" id="dots"></div></div>
-  <div id="stage"></div>
-  <section><p class="cite">Adivinanzas y soluciones: Lozano y Saludas (2005), anexo II. Reproducido con autorización de Gara d’Edizions, editora de la obra (octubre de 2026). Las respuestas incorrectas son soluciones de otras adivinanzas del mismo libro.</p></section>
-</main>
+<div aria-live="polite" class="bar"><span>Aciertos: <b id="ok">0</b> de <b id="tot">11</b></span><div class="dots" id="dots"></div></div>
+<div id="stage"></div>
+<section><p class="cite">Adivinanzas y soluciones: Lozano y Saludas (2005), anexo II. Reproducido con autorización de Gara d’Edizions, editora de la obra (octubre de 2026). Las respuestas incorrectas son soluciones de otras adivinanzas del mismo libro.</p></section>
+<section class="aal-nota"><p class="cite" style="font-size:14px;color:var(--muted)"><b>Ortografía.</b> Formas en la ortografía de la Academia Aragonesa de la Lengua (2023). Grafía de Lozano y Saludas (2005) = <i>cien</i> = zien · <i>cinco</i> = zinco · <i>va</i> = ba · <i>verdes</i> = berdes · <i>viene</i> = biene.</p></section></main>
 <script>
-const A=[{"t": "Cuan ba ta’l monte ba farteta, e cuan torna ta casa biene laseta.", "s": "la bota de vino", "game": true}, {"t": "Las tricas e las tracas, el pixamenut e la empreñatuera.", "s": "el cedazo, la cernedera, la harina y la levadura", "game": true}, {"t": "En un corral de crapas royas, entra la luna e las saca totas.", "s": "el horno del pan, la pala y los panes", "game": true}, {"t": "Una caixeta rodeata de gosez y una chulleta.", "s": "la boca", "game": true}, {"t": "Un ganchet, dos ganchez, tres ganchez; una barreta e un cojonet.", "s": "la romana", "game": true}, {"t": "Cuatro benosas, cuatro terrosas, dos chiracans e un chiramoscas.", "s": "la vaca", "game": true}, {"t": "Un feixet de feixiringuetas, ni son berdes ni son secas.", "s": "agujas de tricotar", "game": true}, {"t": "Patanteta ye preñata, con zien mil patantenetas, ni tiene boca ni cul, ¿per án parirá patanteta?", "s": "la calabaza", "game": true}, {"t": "Alto altero gran caballero, medias royas e sombrero negro.", "s": "el cremallo ‘lar’", "game": true}, {"t": "Sabana blanca, de fil no’n son, tot lo cubre, e a’l rio no.", "s": "la nieve", "game": true}, {"t": "Campo blanco, simién negra, zinco güeis e una rella.", "s": "la escritura", "game": true}];
+const A=[{"t": "Cuan va ta’l monte va farteta, e cuan torna ta casa viene laseta.", "s": "la bota de vino", "game": true}, {"t": "Las tricas e las tracas, el pixamenut e la empreñatuera.", "s": "el cedazo, la cernedera, la harina y la levadura", "game": true}, {"t": "En un corral de crapas royas, entra la luna e las saca totas.", "s": "el horno del pan, la pala y los panes", "game": true}, {"t": "Una caixeta rodeata de gosez y una chulleta.", "s": "la boca", "game": true}, {"t": "Un ganchet, dos ganchez, tres ganchez; una barreta e un cojonet.", "s": "la romana", "game": true}, {"t": "Cuatro benosas, cuatro terrosas, dos chiracans e un chiramoscas.", "s": "la vaca", "game": true}, {"t": "Un feixet de feixiringuetas, ni son verdes ni son secas.", "s": "agujas de tricotar", "game": true}, {"t": "Patanteta ye preñata, con cien mil patantenetas, ni tiene boca ni cul, ¿per án parirá patanteta?", "s": "la calabaza", "game": true}, {"t": "Alto altero gran caballero, medias royas e sombrero negro.", "s": "el cremallo ‘lar’", "game": true}, {"t": "Sabana blanca, de fil no’n son, tot lo cubre, e a’l rio no.", "s": "la nieve", "game": true}, {"t": "Campo blanco, simién negra, cinco güeis e una rella.", "s": "la escritura", "game": true}];
 const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
 const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
 function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -145,10 +145,10 @@ function end(){
 start();
 </script>
 <footer>
-  <div class="col">
-    <p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
-    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Textos propios con licencia CC BY-SA. Los fragmentos citados de otras obras pertenecen a sus autores y editores.</p>
-  </div>
+<div class="col">
+<p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
+<p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Textos propios con licencia CC BY-SA. Los fragmentos citados de otras obras pertenecen a sus autores y editores.</p>
+</div>
 </footer>
 </body>
 </html>
