@@ -72,6 +72,23 @@ h1{font-size:clamp(38px,8.5vw,70px)}
 .kr{display:flex;gap:5px;justify-content:center}
 .k{font:inherit;font-weight:700;flex:1 1 0;min-width:0;height:52px;border:0;border-radius:7px;background:var(--line);color:var(--ink);cursor:pointer;text-transform:uppercase;font-size:15px;padding:0}
 .k.w{flex:1.6 1 0;font-size:12px}
+.k.del{font-size:22px}
+.k,.send{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.send{font:inherit;font-weight:700;font-size:18px;width:100%;height:52px;margin-top:6px;border:0;border-radius:999px;background:var(--pine);color:#fff;cursor:pointer;box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.send:active,.k:active{transform:translateY(1px)}
+.send:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+@media(max-width:640px){
+ .hero{padding-block:16px 0}.hero .eyebrow,.hero .lede,.hero .skyline{display:none}
+ h1{font-size:30px;margin:0 0 6px}
+ main.col{gap:10px!important}
+ .bar{padding-block:6px;flex-wrap:nowrap;font-size:14px}
+ .bar .btn{padding:6px 12px;font-size:14px}
+ .msg{min-height:20px;font-size:15px}
+ .board{width:min(330px,100%,calc((100svh - 340px) * 0.82));gap:5px}.row{gap:5px}
+ .k{height:min(50px,6.8svh)}
+ .send{height:min(52px,7svh)}
+}
+.k.go{background:var(--pine);color:#fff}
 .k.ok{background:var(--pine);color:#fff}.k.in{background:var(--ochre);color:#fff}.k.no{background:var(--muted);color:#fff;opacity:.6}
 .k:focus-visible,.btn:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
 .bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
@@ -111,14 +128,14 @@ h1{font-size:clamp(38px,8.5vw,70px)}
 </svg>
 </header>
 <main class="col" style="gap:18px">
-<div class="bar"><span id="num">Palabra del día</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost" id="pista" type="button">Ver pista</button><button class="btn ghost" id="reset" type="button">Empezar de nuevo</button></span></div>
+<div class="bar"><span id="num">Palabra del día</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost" id="pista" type="button">Ver pista</button><button class="btn ghost" id="reset" type="button" aria-label="Empezar de nuevo">Reiniciar</button></span></div>
 <div class="hint" id="hint" hidden></div>
 <div aria-live="polite" class="msg" id="msg"></div>
 <div aria-label="Tablero" class="board" id="board" role="grid"></div>
 <div class="kb" id="kb"></div>
 <div id="end"></div>
 <section class="how"><h2>Cómo se juega</h2><ul>
-<li>Escribe una palabra de cinco letras y pulsa <b>Enviar</b>. No hace falta escribir tildes.</li>
+<li>Escribe una palabra de cinco letras con el teclado de la pantalla y pulsa <b>Enviar palabra</b>. No hace falta escribir tildes.</li>
 <li><span class="sw" style="background:var(--pine)"></span>La letra está en la palabra y en ese lugar.</li>
 <li><span class="sw" style="background:var(--ochre)"></span>La letra está en la palabra, pero en otro lugar.</li>
 <li><span class="sw" style="background:var(--muted);opacity:.75"></span>La letra no está.</li>
@@ -140,7 +157,7 @@ const dayNum=Math.floor((new Date(new Date().toDateString())-START)/864e5);
 let mode='dia', idx=((dayNum%W.length)+W.length)%W.length, ans, rows, cur, done;
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
-const KEYS=['QWERTYUIOP','ASDFGHJKLÑ','>ZXCVBNM<'];
+const KEYS=['QWERTYUIOP','ASDFGHJKLÑ','ZXCVBNM<'];
 function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
 function build(){
   $('board').innerHTML='';
@@ -150,16 +167,17 @@ function build(){
   $('kb').innerHTML='';
   KEYS.forEach(line=>{const r=document.createElement('div');r.className='kr';
     for(const ch of line){const b=document.createElement('button');b.type='button';b.className='k';
-      if(ch=='>'){b.textContent='Enviar';b.classList.add('w');b.onclick=()=>enter()}
-      else if(ch=='<'){b.textContent='Borrar';b.classList.add('w');b.onclick=()=>back()}
+      if(ch=='>'){b.textContent='Enviar';b.classList.add('w','go');b.setAttribute('aria-label','Enviar la palabra');b.onclick=()=>enter()}
+      else if(ch=='<'){b.textContent='⌫';b.classList.add('w','del');b.setAttribute('aria-label','Borrar la última letra');b.onclick=()=>back()}
       else{b.textContent=ch;b.dataset.k=ch;b.onclick=()=>type(ch)}
       r.appendChild(b)}
     $('kb').appendChild(r)});
+  const go=document.createElement('button');go.type='button';go.className='send';go.textContent='Enviar palabra';go.onclick=()=>enter();$('kb').appendChild(go);
 }
 function start(i,m){
   mode=m; idx=i; ans=W[idx]; rows=[]; cur=''; done=false;
   build(); $('end').innerHTML=''; $('hint').hidden=true; $('msg').textContent=''; pistas=0; $('pista').textContent='Ver pista'; $('pista').disabled=false;
-  $('num').textContent = m=='dia' ? 'Palabra del día n.º '+(dayNum+1) : 'Partida libre';
+  $('num').textContent = m=='dia' ? 'Palabra n.º '+(dayNum+1) : 'Partida libre';
   if(m=='dia'){const s=store('pe-'+dayNum); if(s&&s.rows){s.rows.forEach(w=>{cur=w;paint(true)}); cur=''}}
 }
 function type(ch){ if(done||cur.length>=5)return; cur+=ch; show() }
@@ -208,6 +226,7 @@ $('reset').onclick=()=>{ if(rows.length&&!confirm('¿Seguro que quieres empezar 
   if(mode=='dia'){try{localStorage.removeItem('pe-'+dayNum)}catch(e){}}
   start(idx,mode); $('msg').textContent='Tablero vacío: puedes empezar de nuevo.' };
 start(idx,'dia');
+if(innerWidth<=640){requestAnimationFrame(()=>{const t=document.querySelector('.bar').getBoundingClientRect().top+scrollY-6;scrollTo(0,t)})}
 </script>
 </body>
 </html>
