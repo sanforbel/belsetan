@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La palabra escondida</title>
+<meta name="description" content="Juego: adivina las adivinanzas tradicionales en belsetán del valle de Bielsa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@500;700&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap">
+<style>
+/* Layout: one readable column; a mountain-skyline band opens the page, then sections stacked like stops on the way up the valley. */
+:root{
+  --bg:#e9ece6; --surface:#f7f8f4; --ink:#1f2a24; --muted:#56635a;
+  --line:#c9cfc4; --pine:#2f5d46; --pine-soft:#dbe7df; --ochre:#b5762a; --peak:#c3cbc0;
+  --f-display:"Zilla Slab",Georgia,serif;
+  --f-body:"Source Sans 3",system-ui,-apple-system,sans-serif;
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141a17; --surface:#1c2420; --ink:#e6ebe5; --muted:#a3aea5;
+  --line:#33403a; --pine:#7fbf9b; --pine-soft:#22332a; --ochre:#dca35c; --peak:#26302b;
+  color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:18px;line-height:1.6}
+a{color:var(--pine)}
+a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.col{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+.hero{padding-block:56px 0;position:relative}
+.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:0}
+h1{font-family:var(--f-display);font-weight:700;font-size:clamp(46px,11vw,92px);line-height:.95;margin:.15em 0 .2em;letter-spacing:-.01em}
+.hero p.lede{font-size:21px;max-width:34ch;margin:0 0 28px;color:var(--ink)}
+.skyline{display:block;width:100%;height:auto;max-height:140px;margin-top:8px}
+main{display:flex;flex-direction:column;gap:56px;padding-block:44px 64px}
+h2{font-family:var(--f-display);font-size:30px;line-height:1.15;margin:0 0 12px;text-wrap:balance}
+section p{margin:0 0 14px;max-width:64ch}
+.cite{font-size:14px;color:var(--muted)}
+.feature{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:8px}
+.trait{border-top:3px solid var(--pine);background:var(--surface);padding:14px 16px;display:flex;flex-direction:column;gap:6px}
+.trait b{font-family:var(--f-display);font-size:22px;color:var(--pine);font-weight:700}
+.trait span{font-size:15px;color:var(--muted);line-height:1.45}
+.res{display:flex;flex-direction:column;gap:12px}
+.card{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-decoration:none;color:var(--ink)}
+a.card:hover{border-color:var(--pine)}
+.card .ico{flex:0 0 44px;height:44px;border-radius:10px;background:var(--pine-soft);display:grid;place-items:center}
+.card .ico svg{width:28px;height:24px}
+.card h3{margin:0;font-family:var(--f-display);font-size:22px}
+.card p{margin:2px 0 0;font-size:16px;color:var(--muted)}
+.card.soon{opacity:.75;border-style:dashed}
+.pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 8px;border-radius:999px;background:var(--pine-soft);color:var(--pine);margin-left:6px;vertical-align:middle}
+.rules{display:grid;gap:10px;padding:0;margin:0;list-style:none}
+.rules li{padding-left:16px;border-left:2px solid var(--ochre);max-width:64ch}
+blockquote{margin:6px 0 16px;padding:4px 0 4px 16px;border-left:3px solid var(--ochre);font-style:italic;max-width:60ch}
+.biblio{padding-left:20px;margin:0;display:grid;gap:8px;font-size:16px}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;font-size:15px;color:var(--muted)}
+footer p{margin:0 0 6px}
+</style>
+<style>
+h1{font-size:clamp(38px,8.5vw,70px)}
+.board{display:grid;grid-template-rows:repeat(6,1fr);gap:6px;width:min(330px,100%);margin:0 auto}
+.row{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.tile{aspect-ratio:1;border:2px solid var(--line);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:clamp(22px,7vw,32px);text-transform:uppercase;background:var(--surface);color:var(--ink)}
+.tile.f{border-color:var(--muted)}
+.tile.ok{background:var(--pine);border-color:var(--pine);color:#fff}
+.tile.in{background:var(--ochre);border-color:var(--ochre);color:#fff}
+.tile.no{background:var(--muted);border-color:var(--muted);color:#fff;opacity:.75}
+.kb{display:grid;gap:6px;width:min(520px,100%);margin:0 auto;user-select:none}
+.kr{display:flex;gap:5px;justify-content:center}
+.k{font:inherit;font-weight:700;flex:1 1 0;min-width:0;height:52px;border:0;border-radius:7px;background:var(--line);color:var(--ink);cursor:pointer;text-transform:uppercase;font-size:15px;padding:0}
+.k.w{flex:1.6 1 0;font-size:12px}
+.k.ok{background:var(--pine);color:#fff}.k.in{background:var(--ochre);color:#fff}.k.no{background:var(--muted);color:#fff;opacity:.6}
+.k:focus-visible,.btn:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;padding-block:10px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);font-size:15px;color:var(--muted)}
+.btn{font:inherit;font-weight:600;background:var(--pine);color:var(--surface);border:0;border-radius:999px;padding:10px 20px;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--pine);border:1px solid var(--pine)}
+.msg{min-height:26px;text-align:center;font-weight:600;color:var(--ink)}
+.hint{background:var(--pine-soft);border-radius:10px;padding:10px 14px;text-align:center}
+.end{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px;display:flex;flex-direction:column;gap:10px}
+.end .w{font-family:"Zilla Slab",Georgia,serif;font-size:40px;font-weight:700;color:var(--pine);margin:0}
+.end .x{font-style:italic}.end .n{color:var(--muted);font-size:15px}
+.actions{display:flex;gap:10px;flex-wrap:wrap}
+.how{font-size:16px}.how li{margin-bottom:4px}
+.sw{display:inline-block;width:18px;height:18px;border-radius:4px;vertical-align:-3px;margin-right:4px}
+</style>
+<style>
+.topnav{background:var(--surface);border-bottom:1px solid var(--line)}
+.topnav .in{max-width:760px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px));padding-block:10px;display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 20px}
+.topnav .brand{font-family:"Zilla Slab",Georgia,serif;font-weight:700;font-size:19px;color:var(--pine);text-decoration:none;margin-right:auto}
+.topnav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+.topnav a.tab{font-family:"Source Sans 3",system-ui,sans-serif;font-size:15px;font-weight:600;color:var(--muted);text-decoration:none;padding-block:4px;border-bottom:2px solid transparent}
+.topnav a.tab:hover{color:var(--ink)}
+.topnav a.tab[aria-current="page"]{color:var(--ink);border-bottom-color:var(--ochre)}
+.topnav a:focus-visible{outline:3px solid var(--ochre);outline-offset:2px}
+</style>
+</head>
+<body>
+<nav class="topnav" aria-label="Secciones"><div class="in"><a class="brand" href="../../">Belsetán</a><ul><li><a class="tab" href="../../">Inicio</a></li><li><a class="tab" href="../../valle/">El valle</a></li><li><a class="tab" href="../../anchel/">Ánchel</a></li><li><a class="tab" href="../../historia/">Historia</a></li><li><a class="tab" href="../../textos/">Textos</a></li><li><a class="tab" href="../../juegos/" aria-current="page">Juegos</a></li><li><a class="tab" href="../../aula/">Aula</a></li><li><a class="tab" href="../../pregunta/">¿Tienes dudas?</a></li><li><a class="tab" href="../../colabora/">Colabora</a></li></ul></div></nav>
+<header class="hero">
+<div class="col">
+<p class="eyebrow">Juego diario</p>
+<h1>La palabra escondida</h1>
+<p class="lede">Cada día, una palabra del belsetán de cinco letras. Tienes seis intentos para descubrirla.</p>
+</div>
+
+</header>
+<main class="col" style="gap:18px">
+<div class="bar"><span id="num">Palabra del día</span><span><button class="btn ghost" id="pista" type="button">Ver pista</button></span></div>
+<div class="hint" id="hint" hidden></div>
+<div aria-live="polite" class="msg" id="msg"></div>
+<div aria-label="Tablero" class="board" id="board" role="grid"></div>
+<div class="kb" id="kb"></div>
+<div id="end"></div>
+<section class="how"><h2>Cómo se juega</h2><ul>
+<li>Escribe una palabra de cinco letras y pulsa <b>Enviar</b>. No hace falta escribir tildes.</li>
+<li><span class="sw" style="background:var(--pine)"></span>La letra está en la palabra y en ese lugar.</li>
+<li><span class="sw" style="background:var(--ochre)"></span>La letra está en la palabra, pero en otro lugar.</li>
+<li><span class="sw" style="background:var(--muted);opacity:.75"></span>La letra no está.</li>
+<li>Puedes escribir cualquier combinación de letras: el juego sirve para practicar, no solo para quien ya habla belsetán.</li>
+<li>Al final verás qué significa la palabra, un ejemplo de uso y su fuente. Cuando acabes, puedes seguir jugando con palabras al azar.</li></ul>
+<p class="cite">Todas las palabras están documentadas en Lozano y Saludas (2005), <i>Aspectos morfosintácticos del belsetán</i>, y se escriben con la ortografía de la Academia Aragonesa de la Lengua (2023). Cuando la grafía de la fuente es distinta, se indica al final.</p></section>
+</main>
+<footer>
+  <div class="col">
+    <p>El sonido auténtico del belsetán vive en la voz de sus hablantes y en las grabaciones. Escúchalos.</p>
+    <p>Una iniciativa de <a href="https://sandrafortanet.netlify.app/">@sanforbel</a> · Textos propios con licencia CC BY-SA. Los fragmentos citados de otras obras pertenecen a sus autores y editores.</p>
+  </div>
+</footer>
+<script>
+const W=[{"f": "royas", "o": "", "g": "rojas", "ex": "medias royas e sombrero negro", "ox": "", "eg": "medias rojas y sombrero negro", "s": "Lozano y Saludas (2005)", "n": "ROYAS"}, {"f": "verde", "o": "berde", "g": "verde", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "VERDE"}, {"f": "dreto", "o": "", "g": "derecho, recto", "ex": "la man dreta", "ox": "", "eg": "la mano derecha", "s": "Lozano y Saludas (2005)", "n": "DRETO"}, {"f": "negro", "o": "", "g": "negro (femenino: negra)", "ex": "nos daban una azúcar negra", "ox": "", "eg": "nos daban un azúcar negro", "s": "Lozano y Saludas (2005)", "n": "NEGRO"}, {"f": "mader", "o": "", "g": "madero", "ex": "", "ox": "", "eg": null, "s": "Lozano y Saludas (2005)", "n": "MADER"}, {"f": "ninna", "o": "nin·na", "g": "niña", "ex": "la ninna preferita", "ox": "la nin·na preferita", "eg": "la niña preferida", "s": "Lozano y Saludas (2005)", "n": "NINNA"}, {"f": "prato", "o": "", "g": "prado", "ex": "el prato mío ye millor que l’altro", "ox": "", "eg": "mi prado es mejor que el otro", "s": "Lozano y Saludas (2005)", "n": "PRATO"}, {"f": "ixata", "o": "", "g": "azada", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "IXATA"}, {"f": "boira", "o": "", "g": "niebla", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "BOIRA"}, {"f": "latón", "o": "", "g": "cerdo", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "LATON"}, {"f": "parez", "o": "", "g": "paredes", "ex": "", "ox": "", "eg": null, "s": "Lozano y Saludas (2005)", "n": "PAREZ"}, {"f": "torta", "o": "", "g": "torta", "ex": "feban torta bien cueta", "ox": "", "eg": "hacían torta bien cocida", "s": "Lozano y Saludas (2005)", "n": "TORTA"}, {"f": "griso", "o": "", "g": "gris (femenino: grisa)", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "GRISO"}, {"f": "plana", "o": "", "g": "llano, llanura", "ex": "", "ox": "", "eg": null, "s": "Lozano y Saludas (2005)", "n": "PLANA"}, {"f": "cinco", "o": "zinco", "g": "cinco (también zingo)", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "CINCO"}, {"f": "queso", "o": "", "g": "queso", "ex": "feban bela miqueta queso", "ox": "", "eg": "hacían algo de queso", "s": "Lozano y Saludas (2005)", "n": "QUESO"}, {"f": "güela", "o": "", "g": "abuela", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "GUELA"}, {"f": "fuent", "o": "fuen", "g": "fuente", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "FUENT"}, {"f": "ninno", "o": "nin·no", "g": "niño", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "NINNO"}, {"f": "dolén", "o": "", "g": "enfermo", "ex": "", "ox": "", "eg": null, "s": "Lozano y Saludas (2005)", "n": "DOLEN"}, {"f": "güelo", "o": "", "g": "abuelo", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "GUELO"}, {"f": "escur", "o": "", "g": "oscuro", "ex": "mes escur que una lupera", "ox": "més escur que una lupera", "eg": "más oscuro que una lobera", "s": "Lozano y Saludas (2005)", "n": "ESCUR"}, {"f": "vente", "o": "bente", "g": "veinte", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "VENTE"}, {"f": "estes", "o": "", "g": "estos", "ex": "estes zagals no’l sé", "ox": "", "eg": "estos zagales no lo sé", "s": "Lozano y Saludas (2005)", "n": "ESTES"}, {"f": "ombre", "o": "", "g": "hombre", "ex": "aquer ombre ye gran, gran", "ox": "", "eg": "aquel hombre es grande, grande", "s": "Lozano y Saludas (2005)", "n": "OMBRE"}, {"f": "aquer", "o": "", "g": "aquel", "ex": "aquer año se’n fue", "ox": "", "eg": "aquel año se fue", "s": "Lozano y Saludas (2005)", "n": "AQUER"}, {"f": "nasos", "o": "", "g": "narices", "ex": "", "ox": "", "eg": null, "s": "Lozano y Saludas (2005)", "n": "NASOS"}, {"f": "camín", "o": "", "g": "camino", "ex": "per el camín", "ox": "", "eg": "por el camino", "s": "Lozano y Saludas (2005)", "n": "CAMIN"}, {"f": "augua", "o": "", "g": "agua", "ex": "l’augua ye freda", "ox": "", "eg": "el agua está fría", "s": "Lozano y Saludas (2005)", "n": "AUGUA"}, {"f": "fuina", "o": "", "g": "garduña", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "FUINA"}, {"f": "siete", "o": "", "g": "siete", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "SIETE"}, {"f": "crapa", "o": "", "g": "cabra", "ex": "mientres que suelto las güellas atura las crapas", "ox": "", "eg": "mientras suelto las ovejas retén las cabras", "s": "Lozano y Saludas (2005)", "n": "CRAPA"}, {"f": "faixa", "o": "", "g": "faja", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "FAIXA"}, {"f": "cucut", "o": "", "g": "cuclillo, cuco", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "CUCUT"}, {"f": "fredo", "o": "", "g": "frío", "ex": "l’augua ye freda", "ox": "", "eg": "el agua está fría", "s": "Lozano y Saludas (2005)", "n": "FREDO"}, {"f": "ordio", "o": "", "g": "cebada", "ex": "", "ox": "", "eg": null, "s": "Lozano y Saludas (2005)", "n": "ORDIO"}, {"f": "ixato", "o": "", "g": "azadón", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "IXATO"}, {"f": "almuz", "o": "", "g": "almudes", "ex": "e replegaban dos almuz de trigo per cada casa", "ox": "", "eg": "y recogían dos almudes de trigo en cada casa", "s": "Lozano y Saludas (2005)", "n": "ALMUZ"}, {"f": "fillo", "o": "", "g": "hijo", "ex": "aquér ye fillo de Carmen", "ox": "", "eg": "aquel es hijo de Carmen", "s": "Lozano y Saludas (2005)", "n": "FILLO"}, {"f": "chent", "o": "chen", "g": "gente", "ex": "la chent picaban madera", "ox": "la chen picaban madera", "eg": "la gente talaba árboles", "s": "Lozano y Saludas (2005)", "n": "CHENT"}, {"f": "yerba", "o": "", "g": "hierba, heno", "ex": "puyaban yerba con saumeta", "ox": "", "eg": "subían heno con saumeta", "s": "Lozano y Saludas (2005)", "n": "YERBA"}, {"f": "matur", "o": "", "g": "maduro", "ex": "", "ox": "", "eg": null, "s": "Lozano y Saludas (2005)", "n": "MATUR"}, {"f": "cueto", "o": "", "g": "cocido", "ex": "feban torta bien cueta", "ox": "", "eg": "hacían torta bien cocida", "s": "Lozano y Saludas (2005)", "n": "CUETO"}, {"f": "ixuto", "o": "", "g": "seco", "ex": "", "ox": "", "eg": null, "s": "Lozano y Saludas (2005)", "n": "IXUTO"}, {"f": "nueve", "o": "nuebe", "g": "nueve", "ex": "", "ox": "", "eg": "", "s": "Lozano y Saludas (2005)", "n": "NUEVE"}, {"f": "borda", "o": "", "g": "edificación de varios usos agropecuarios", "ex": "es crapitos n’a borda", "ox": "", "eg": "los cabritos en la borda", "s": "Lozano y Saludas (2005)", "n": "BORDA"}];
+const START=new Date(2026,10,9);
+const dayNum=Math.floor((new Date(new Date().toDateString())-START)/864e5);
+let mode='dia', idx=((dayNum%W.length)+W.length)%W.length, ans, rows, cur, done;
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
+const KEYS=['QWERTYUIOP','ASDFGHJKLÑ','>ZXCVBNM<'];
+function store(k,v){try{if(v===undefined)return JSON.parse(localStorage.getItem(k));localStorage.setItem(k,JSON.stringify(v))}catch(e){return null}}
+function build(){
+  $('board').innerHTML='';
+  for(let r=0;r<6;r++){const row=document.createElement('div');row.className='row';row.setAttribute('role','row');
+    for(let c=0;c<5;c++){const t=document.createElement('div');t.className='tile';t.setAttribute('role','gridcell');row.appendChild(t)}
+    $('board').appendChild(row)}
+  $('kb').innerHTML='';
+  KEYS.forEach(line=>{const r=document.createElement('div');r.className='kr';
+    for(const ch of line){const b=document.createElement('button');b.type='button';b.className='k';
+      if(ch=='>'){b.textContent='Enviar';b.classList.add('w');b.onclick=()=>enter()}
+      else if(ch=='<'){b.textContent='Borrar';b.classList.add('w');b.onclick=()=>back()}
+      else{b.textContent=ch;b.dataset.k=ch;b.onclick=()=>type(ch)}
+      r.appendChild(b)}
+    $('kb').appendChild(r)});
+}
+function start(i,m){
+  mode=m; idx=i; ans=W[idx]; rows=[]; cur=''; done=false;
+  build(); $('end').innerHTML=''; $('hint').hidden=true; $('msg').textContent='';
+  $('num').textContent = m=='dia' ? 'Palabra del día n.º '+(dayNum+1) : 'Partida libre';
+  if(m=='dia'){const s=store('pe-'+dayNum); if(s&&s.rows){s.rows.forEach(w=>{cur=w;paint(true)}); cur=''}}
+}
+function type(ch){ if(done||cur.length>=5)return; cur+=ch; show() }
+function back(){ if(done)return; cur=cur.slice(0,-1); show() }
+function show(){ const row=$('board').children[rows.length]; if(!row)return;
+  [...row.children].forEach((t,i)=>{t.textContent=cur[i]||'';t.classList.toggle('f',!!cur[i])}) }
+function score(g,a){ const res=Array(5).fill('no'),left={};
+  for(let i=0;i<5;i++){ if(g[i]==a[i])res[i]='ok'; else left[a[i]]=(left[a[i]]||0)+1 }
+  for(let i=0;i<5;i++){ if(res[i]!='ok'&&left[g[i]]){res[i]='in';left[g[i]]--} }
+  return res }
+const NAME={ok:'en su sitio',in:'en otro sitio',no:'no está'};
+function paint(restoring){
+  const row=$('board').children[rows.length], res=score(cur,ans.n);
+  [...row.children].forEach((t,i)=>{t.textContent=cur[i];t.className='tile '+res[i];t.setAttribute('aria-label',cur[i]+': '+NAME[res[i]])});
+  for(let i=0;i<5;i++){const k=document.querySelector('.k[data-k="'+cur[i]+'"]');if(!k)continue;
+    const rank={no:1,in:2,ok:3};const prev=k.dataset.s;if(!prev||rank[res[i]]>rank[prev]){k.dataset.s=res[i];k.classList.remove('ok','in','no');k.classList.add(res[i])}}
+  rows.push(cur);
+  if(!restoring) $('msg').textContent=cur.split('').map((c,i)=>c+' '+NAME[res[i]]).join(', ');
+  if(cur==ans.n) finish(true); else if(rows.length==6) finish(false);
+  if(mode=='dia') store('pe-'+dayNum,{rows});
+}
+function enter(){ if(done)return; if(cur.length<5){$('msg').textContent='Faltan letras: la palabra tiene cinco.';return} paint(false); cur='' }
+function finish(win){
+  done=true;
+  const grid=rows.map(r=>score(r,ans.n).map(s=>s=='ok'?'🟩':s=='in'?'🟨':'⬜').join('')).join('\n');
+  const n=win?rows.length:'X';
+  const ex=ans.ex?`<p class="x">«${esc(ans.ex)}» <span class="n">‘${esc(ans.eg)}’</span></p>`:'';
+  const orig=(ans.o||ans.ox)?`<p class="n">En la fuente se escribe: ${esc([ans.o,ans.ox].filter(Boolean).join(' · '))}</p>`:'';
+  $('end').innerHTML=`<div class="end"><p>${win?'¡Muy bien! La has encontrado en '+rows.length+(rows.length==1?' intento.':' intentos.'):'Esta vez no ha podido ser. La palabra era:'}</p>
+  <p class="w">${esc(ans.f)}</p><p>‘${esc(ans.g)}’</p>${ex}${orig}<p class="n">Fuente: ${esc(ans.s)}.</p>
+  <div class="actions">${mode=='dia'?'<button class="btn" id="share" type="button">Compartir resultado</button>':''}<button class="btn ghost" id="otra" type="button">Jugar con otra palabra</button></div></div>`;
+  $('msg').textContent=win?'¡Acertaste!':'La palabra era '+ans.f;
+  if($('share'))$('share').onclick=()=>{const t='La palabra escondida en belsetán n.º '+(dayNum+1)+' '+n+'/6\n'+grid+'\nhttps://sanforbel.github.io/belsetan/juegos/palabra/';
+    if(navigator.share){navigator.share({text:t}).catch(()=>{})}else{try{navigator.clipboard.writeText(t);$('msg').textContent='Resultado copiado: ya puedes pegarlo donde quieras.'}catch(e){}}};
+  $('otra').onclick=()=>{let j;do{j=Math.floor(Math.random()*W.length)}while(j==idx&&W.length>1);start(j,'libre');$('board').scrollIntoView({block:'center'})};
+}
+$('pista').onclick=()=>{$('hint').hidden=false;$('hint').innerHTML='Significa: <b>‘'+esc(ans.g)+'’</b>'};
+document.addEventListener('keydown',e=>{ if(e.ctrlKey||e.metaKey||e.altKey)return;
+  if(e.key=='Enter'){enter();e.preventDefault()} else if(e.key=='Backspace')back();
+  else{const k=e.key.toUpperCase().normalize('NFD').replace(/[\u0300-\u0302\u0304-\u036f]/g,'').normalize('NFC'); if(/^[A-ZÑ]$/.test(k))type(k)} });
+start(idx,'dia');
+</script>
+</body>
+</html>
