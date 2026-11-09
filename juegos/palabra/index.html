@@ -103,7 +103,7 @@ h1{font-size:clamp(38px,8.5vw,70px)}
 
 </header>
 <main class="col" style="gap:18px">
-<div class="bar"><span id="num">Palabra del día</span><span><button class="btn ghost" id="pista" type="button">Ver pista</button></span></div>
+<div class="bar"><span id="num">Palabra del día</span><span style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost" id="pista" type="button">Ver pista</button><button class="btn ghost" id="reset" type="button">Empezar de nuevo</button></span></div>
 <div class="hint" id="hint" hidden></div>
 <div aria-live="polite" class="msg" id="msg"></div>
 <div aria-label="Tablero" class="board" id="board" role="grid"></div>
@@ -196,6 +196,9 @@ $('pista').onclick=()=>{pistas=Math.min(pistas+1,2);$('hint').hidden=false;
 document.addEventListener('keydown',e=>{ if(e.ctrlKey||e.metaKey||e.altKey)return;
   if(e.key=='Enter'){enter();e.preventDefault()} else if(e.key=='Backspace')back();
   else{const k=e.key.toUpperCase().normalize('NFD').replace(/[\u0300-\u0302\u0304-\u036f]/g,'').normalize('NFC'); if(/^[A-ZÑ]$/.test(k))type(k)} });
+$('reset').onclick=()=>{ if(rows.length&&!confirm('¿Seguro que quieres empezar esta palabra de nuevo? Se borrarán tus intentos.'))return;
+  if(mode=='dia'){try{localStorage.removeItem('pe-'+dayNum)}catch(e){}}
+  start(idx,mode); $('msg').textContent='Tablero vacío: puedes empezar de nuevo.' };
 start(idx,'dia');
 </script>
 </body>
